@@ -1,0 +1,44 @@
+﻿.main-header .logo {
+  font-family: "Georgia", Times, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 30px;	
+}
+ /* Cor de fundo do logo */
+        .skin-blue .main-header .logo {
+                              background-color: #000000;
+                              }
+
+        /* cor de fundo do logo quando mouse passa */
+        .skin-blue .main-header .logo:hover {
+                              background-color: #000000;
+                              }
+
+        /* cabeçalho principal */
+        .skin-blue .main-header .navbar {
+                              background-color: #000000;
+                              }        
+
+        /* menu lateral */
+        .skin-blue .main-sidebar {
+                              background-color: #C0C0C0;
+                              }
+
+        /* aba do menu lateral quando selecionado */
+        .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                              background-color: #FFFF00;
+                              }
+
+        /* abas não selecionadas do menu lateral */
+        .skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                              background-color: #C0C0C0;
+                              color: #000000;
+                              }
+
+        /* abas do menu lateral quando o mouse passa */
+         .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+                              background-color: #8E2323;
+                              }
+        /* cor do botão de menu quando o mouse passa */                    
+         .skin-blue .main-header .navbar .sidebar-toggle:hover{
+                              background-color: #000000;
+                              }

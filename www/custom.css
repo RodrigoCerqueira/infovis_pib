@@ -1,0 +1,28 @@
+﻿           /* menu lateral */
+        .skin-red .main-sidebar {
+                              background-color: #AA2C1D;
+                              }
+
+        /* aba do menu lateral quando selecionado */
+        .skin-red .main-sidebar .sidebar .sidebar-menu .active a{
+                              background-color: #8E2323;
+							  color: #ffffff
+                              }
+
+        /* abas não selecionadas do menu lateral */
+        .skin-red .main-sidebar .sidebar .sidebar-menu a{
+                              background-color: #AA2C1D;
+                              color: #ffffff;
+                              }
+
+        /* abas do menu lateral quando o mouse passa */
+         .skin-red .main-sidebar .sidebar .sidebar-menu a:hover{
+                              background-color: #8E2323;
+                              }
+/* body */
+                                text {
+     font-family: helvetica,arial,sans-serf;
+}
+								.content-wrapper, .right-side {
+                                background-color: #ffffff;
+                                }
