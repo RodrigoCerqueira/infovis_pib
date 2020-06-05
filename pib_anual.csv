@@ -1,0 +1,466 @@
+Ano;Pais;Regiao;UF;CodUF;PIB;rank_br;rank_ne;particip_br;particip_ne;indice;tx
+2002;Brasil;Centro Oeste;Distrito Federal;53;53902;8;;3,6;;100;
+2002;Brasil;Centro Oeste;Goiás;52;38629;9;;2,6;;100;
+2002;Brasil;Centro Oeste;Mato Grosso ;51;19191;15;;1,3;;100;
+2002;Brasil;Centro Oeste;Mato Grosso do Sul;50;16440;16;;1,1;;100;
+2002;Brasil;Nordeste;Alagoas;27;11537;20;7;0,8;5,9;100;
+2002;Brasil;Nordeste;Bahia;29;58843;6;1;4;30,2;100;
+2002;Brasil;Nordeste;Ceará;23;28719;11;3;1,9;14,7;100;
+2002;Brasil;Nordeste;Maranhão;21;15924;17;4;1,1;8,2;100;
+2002;Brasil;Nordeste;Paraíba;25;12747;19;6;0,9;6,5;100;
+2002;Brasil;Nordeste;Pernambuco;26;36056;10;2;2,4;18,5;100;
+2002;Brasil;Nordeste;Piauí;22;7123;23;9;0,5;3,7;100;
+2002;Brasil;Nordeste;Rio Grande do Norte;24;13567;18;5;0,9;7;100;
+2002;Brasil;Nordeste;Sergipe;28;10332;21;8;0,7;5,3;100;
+2002;Brasil;Norte;Acre;12;2971;26;;0,2;;100;
+2002;Brasil;Norte;Amapá;16;3173;25;;0,2;;100;
+2002;Brasil;Norte;Amazonas;13;22093;14;;1,5;;100;
+2002;Brasil;Norte;Pará;15;26482;13;;1,8;;100;
+2002;Brasil;Norte;Rondônia;11;7468;22;;0,5;;100;
+2002;Brasil;Norte;Roraima;14;2392;27;;0,2;;100;
+2002;Brasil;Norte;Tocantins;17;5323;24;;0,4;;100;
+2002;Brasil;Sudeste;Espírito Santo;32;27049;12;;1,8;;100;
+2002;Brasil;Sudeste;Minas Gerais;31;124071;3;;8,3;;100;
+2002;Brasil;Sudeste;Rio de Janeiro;33;184311;2;;12,4;;100;
+2002;Brasil;Sudeste;São Paulo;35;518879;1;;34,9;;100;
+2002;Brasil;Sul;Paraná;41;88236;5;;5,9;;100;
+2002;Brasil;Sul;Rio Grande do Sul;43;98847;4;;6,6;;100;
+2002;Brasil;Sul;Santa Catarina;42;54482;7;;3,7;;100;
+2003;Brasil;Centro Oeste;Distrito Federal;53;58456;8;;3,4;;100,7;0,7
+2003;Brasil;Centro Oeste;Goiás;52;45558;9;;2,7;;104,7;4,7
+2003;Brasil;Centro Oeste;Mato Grosso ;51;26697;14;;1,6;;105,2;5,2
+2003;Brasil;Centro Oeste;Mato Grosso do Sul;50;21847;16;;1,3;;106,5;6,5
+2003;Brasil;Nordeste;Alagoas;27;12624;20;;0,7;5,7;98,9;-1,1
+2003;Brasil;Nordeste;Bahia;29;67174;6;;3,9;30,5;102,3;2,3
+2003;Brasil;Nordeste;Ceará;23;32687;11;;1,9;14,8;101,3;1,3
+2003;Brasil;Nordeste;Maranhão;21;19503;17;;1,1;8,8;105;5
+2003;Brasil;Nordeste;Paraíba;25;14738;19;;0,9;6,7;105,2;5,2
+2003;Brasil;Nordeste;Pernambuco;26;38816;10;;2,3;17,6;97,3;-2,7
+2003;Brasil;Nordeste;Piauí;22;8415;23;;0,5;3,8;105,7;5,7
+2003;Brasil;Nordeste;Rio Grande do Norte;24;14865;18;;0,9;6,7;102,4;2,4
+2003;Brasil;Nordeste;Sergipe;28;11750;21;;0,7;5,3;102,6;2,6
+2003;Brasil;Norte;Acre;12;3377;26;;0,2;;102,1;2,1
+2003;Brasil;Norte;Amapá;16;3413;25;;0,2;;107,9;7,9
+2003;Brasil;Norte;Amazonas;13;25862;15;;1,5;;105;5
+2003;Brasil;Norte;Pará;15;30270;13;;1,8;;107,1;7,1
+2003;Brasil;Norte;Rondônia;11;9425;22;;0,5;;103,3;3,3
+2003;Brasil;Norte;Roraima;14;2594;27;;0,2;;101,9;1,9
+2003;Brasil;Norte;Tocantins;17;6612;24;;0,4;;109,3;9,3
+2003;Brasil;Sudeste;Espírito Santo;32;31519;12;;1,8;;102,9;2,9
+2003;Brasil;Sudeste;Minas Gerais;31;144189;3;;8,4;;102,1;2,1
+2003;Brasil;Sudeste;Rio de Janeiro;33;202641;2;;11,8;;99;-1
+2003;Brasil;Sudeste;São Paulo;35;591454;1;;34,4;;99,5;-0,5
+2003;Brasil;Sul;Paraná;41;110039;5;;6,4;;104;4
+2003;Brasil;Sul;Rio Grande do Sul;43;119325;4;;6,9;;102;2
+2003;Brasil;Sul;Santa Catarina;42;64098;7;;3,7;;102,1;2,1
+2004;Brasil;Centro Oeste;Distrito Federal;53;67077;8;;3,4;;105,7;5
+2004;Brasil;Centro Oeste;Goiás;52;51104;9;;2,6;;111,6;6,7
+2004;Brasil;Centro Oeste;Mato Grosso ;51;33389;14;;1,7;;120,7;14,8
+2004;Brasil;Centro Oeste;Mato Grosso do Sul;50;23372;16;;1,2;;105,7;-0,8
+2004;Brasil;Nordeste;Alagoas;27;14045;20;;0,7;5,4;104,8;6
+2004;Brasil;Nordeste;Bahia;29;77932;6;;4;29,8;112;9,4
+2004;Brasil;Nordeste;Ceará;23;36891;13;;1,9;14,1;106,5;5,2
+2004;Brasil;Nordeste;Maranhão;21;22127;17;;1,1;8,5;112,6;7,2
+2004;Brasil;Nordeste;Paraíba;25;15758;19;;0,8;6;108,9;3,5
+2004;Brasil;Nordeste;Pernambuco;26;44983;10;;2,3;17,2;102,3;5,1
+2004;Brasil;Nordeste;Piauí;22;9406;23;;0,5;3,6;113,8;7,7
+2004;Brasil;Nordeste;Rio Grande do Norte;24;17252;18;;0,9;6,6;106,6;4,1
+2004;Brasil;Nordeste;Sergipe;28;13336;21;;0,7;5,1;109,2;6,5
+2004;Brasil;Norte;Acre;12;3784;26;;0,2;;115,9;13,5
+2004;Brasil;Norte;Amapá;16;3825;25;;0,2;;114,9;6,5
+2004;Brasil;Norte;Amazonas;13;31091;15;;1,6;;116,1;10,6
+2004;Brasil;Norte;Pará;15;37273;12;;1,9;;116,1;8,4
+2004;Brasil;Norte;Rondônia;11;11005;22;;0,6;;117;13,3
+2004;Brasil;Norte;Roraima;14;2823;27;;0,1;;108,7;6,7
+2004;Brasil;Norte;Tocantins;17;7252;24;;0,4;;117,7;7,7
+2004;Brasil;Sudeste;Espírito Santo;32;39733;11;;2;;107,3;4,3
+2004;Brasil;Sudeste;Minas Gerais;31;171871;3;;8,8;;108,1;5,9
+2004;Brasil;Sudeste;Rio de Janeiro;33;241207;2;;12,3;;101,7;2,7
+2004;Brasil;Sudeste;São Paulo;35;652956;1;;33,4;;105,7;6,2
+2004;Brasil;Sul;Paraná;41;123452;5;;6,3;;109,5;5,4
+2004;Brasil;Sul;Rio Grande do Sul;43;131192;4;;6,7;;105,4;3,3
+2004;Brasil;Sul;Santa Catarina;42;73619;7;;3,8;;109,7;7,5
+2005;Brasil;Centro Oeste;Distrito Federal;53;75733;8;;3,5;;111,8;5,8
+2005;Brasil;Centro Oeste;Goiás;52;53865;9;;2,5;;115,6;3,5
+2005;Brasil;Centro Oeste;Mato Grosso ;51;34257;14;;1,6;;126,3;4,6
+2005;Brasil;Centro Oeste;Mato Grosso do Sul;50;23725;17;;1,1;;108,4;2,6
+2005;Brasil;Nordeste;Alagoas;27;15485;20;;0,7;5,3;108,5;3,6
+2005;Brasil;Nordeste;Bahia;29;88292;6;;4,1;30,2;116,6;4,1
+2005;Brasil;Nordeste;Ceará;23;41059;12;;1,9;14,1;109,2;2,5
+2005;Brasil;Nordeste;Maranhão;21;25104;16;;1,2;8,6;119,2;5,9
+2005;Brasil;Nordeste;Paraíba;25;17557;19;;0,8;6;111,8;2,7
+2005;Brasil;Nordeste;Pernambuco;26;50240;10;;2,3;17,2;106,7;4,3
+2005;Brasil;Nordeste;Piauí;22;10712;23;;0,5;3,7;118,3;3,9
+2005;Brasil;Nordeste;Rio Grande do Norte;24;19967;18;;0,9;6,8;109,1;2,4
+2005;Brasil;Nordeste;Sergipe;28;14430;21;;0,7;4,9;113,9;4,3
+2005;Brasil;Norte;Acre;12;4301;26;;0,2;;119;2,7
+2005;Brasil;Norte;Amapá;16;4306;25;;0,2;;122,1;6,3
+2005;Brasil;Norte;Amazonas;13;33981;15;;1,6;;126,5;9
+2005;Brasil;Norte;Pará;15;40523;13;;1,9;;121;4,2
+2005;Brasil;Norte;Rondônia;11;12512;22;;0,6;;118,6;1,4
+2005;Brasil;Norte;Roraima;14;3193;27;;0,1;;116,7;7,3
+2005;Brasil;Norte;Tocantins;17;7707;24;;0,4;;122,6;4,2
+2005;Brasil;Sudeste;Espírito Santo;32;47021;11;;2,2;;111,1;3,5
+2005;Brasil;Sudeste;Minas Gerais;31;188364;3;;8,7;;112,5;4
+2005;Brasil;Sudeste;Rio de Janeiro;33;269830;2;;12,4;;104,5;2,8
+2005;Brasil;Sudeste;São Paulo;35;743043;1;;34,2;;109,9;4
+2005;Brasil;Sul;Paraná;41;127465;5;;5,9;;110,2;0,6
+2005;Brasil;Sul;Rio Grande do Sul;43;136363;4;;6,3;;102,5;-2,7
+2005;Brasil;Sul;Santa Catarina;42;81549;7;;3,8;;111,9;2
+2006;Brasil;Centro Oeste;Distrito Federal;53;84661;8;;3,5;;117,9;5,5
+2006;Brasil;Centro Oeste;Goiás;52;61375;9;;2,5;;119,1;3,1
+2006;Brasil;Centro Oeste;Mato Grosso ;51;30700;15;;1,3;;123,8;-2
+2006;Brasil;Centro Oeste;Mato Grosso do Sul;50;26668;17;;1,1;;114,6;5,7
+2006;Brasil;Nordeste;Alagoas;27;17396;20;;0,7;5,3;111,6;2,8
+2006;Brasil;Nordeste;Bahia;29;95348;6;;4;29,1;120,1;3
+2006;Brasil;Nordeste;Ceará;23;46500;12;;1,9;14,2;118,1;8,2
+2006;Brasil;Nordeste;Maranhão;21;29711;16;;1,2;9,1;123,5;3,6
+2006;Brasil;Nordeste;Paraíba;25;20838;19;;0,9;6,3;120,4;7,7
+2006;Brasil;Nordeste;Pernambuco;26;55485;10;;2,3;16,9;111,9;4,9
+2006;Brasil;Nordeste;Piauí;22;13360;22;;0,6;4,1;124,9;5,6
+2006;Brasil;Nordeste;Rio Grande do Norte;24;22890;18;;1;7;112,4;3
+2006;Brasil;Nordeste;Sergipe;28;16420;21;;0,7;5;118,8;4,3
+2006;Brasil;Norte;Acre;12;4662;26;;0,2;;127,6;7,2
+2006;Brasil;Norte;Amapá;16;5281;25;;0,2;;130,6;6,9
+2006;Brasil;Norte;Amazonas;13;39933;14;;1,7;;129,3;2,2
+2006;Brasil;Norte;Pará;15;45983;13;;1,9;;129,1;6,7
+2006;Brasil;Norte;Rondônia;11;13055;23;;0,5;;124,3;4,8
+2006;Brasil;Norte;Roraima;14;3802;27;;0,2;;127,6;9,3
+2006;Brasil;Norte;Tocantins;17;8656;24;;0,4;;127,6;4
+2006;Brasil;Sudeste;Espírito Santo;32;53464;11;;2,2;;120,6;8,5
+2006;Brasil;Sudeste;Minas Gerais;31;212660;3;;8,8;;116,9;3,9
+2006;Brasil;Sudeste;Rio de Janeiro;33;299738;2;;12,4;;108,8;4,1
+2006;Brasil;Sudeste;São Paulo;35;824529;1;;34,2;;114,1;3,9
+2006;Brasil;Sul;Paraná;41;137648;5;;5,7;;112,3;1,9
+2006;Brasil;Sul;Rio Grande do Sul;43;147623;4;;6,1;;106,6;4,1
+2006;Brasil;Sul;Santa Catarina;42;91063;7;;3,8;;114,8;2,6
+2007;Brasil;Centro Oeste;Distrito Federal;53;93404;8;;3,4;;125,7;6,6
+2007;Brasil;Centro Oeste;Goiás;52;71411;9;;2,6;;125,8;5,6
+2007;Brasil;Centro Oeste;Mato Grosso ;51;38028;15;;1,4;;139;12,2
+2007;Brasil;Centro Oeste;Mato Grosso do Sul;50;30085;17;;1,1;;120;4,7
+2007;Brasil;Nordeste;Alagoas;27;19871;20;;0,7;5,6;117,5;5,2
+2007;Brasil;Nordeste;Bahia;29;109330;6;;4;30,9;126;4,9
+2007;Brasil;Nordeste;Ceará;23;50819;13;;1,9;14,3;121,7;3,1
+2007;Brasil;Nordeste;Maranhão;21;30731;16;;1,1;8,7;132,1;7
+2007;Brasil;Nordeste;Paraíba;25;22910;19;;0,8;6,5;123;2,2
+2007;Brasil;Nordeste;Pernambuco;26;62459;10;;2,3;17,6;117,9;5,4
+2007;Brasil;Nordeste;Piauí;22;13736;23;;0,5;3,9;131,6;5,4
+2007;Brasil;Nordeste;Rio Grande do Norte;24;26318;18;;1;7,4;115,7;3
+2007;Brasil;Nordeste;Sergipe;28;18218;21;;0,7;5,1;126,2;6,3
+2007;Brasil;Norte;Acre;12;5458;26;;0,2;;133,2;4,4
+2007;Brasil;Norte;Amapá;16;6013;25;;0,2;;136,4;4,4
+2007;Brasil;Norte;Amazonas;13;43480;14;;1,6;;135,4;4,7
+2007;Brasil;Norte;Pará;15;51847;12;;1,9;;132;2,2
+2007;Brasil;Norte;Rondônia;11;14438;22;;0,5;;132,8;6,9
+2007;Brasil;Norte;Roraima;14;4203;27;;0,2;;125,2;-1,9
+2007;Brasil;Norte;Tocantins;17;10193;24;;0,4;;134,4;5,3
+2007;Brasil;Sudeste;Espírito Santo;32;60658;11;;2,2;;129,2;7,1
+2007;Brasil;Sudeste;Minas Gerais;31;240355;3;;8,8;;123,3;5,5
+2007;Brasil;Sudeste;Rio de Janeiro;33;323698;2;;11,9;;112,5;3,4
+2007;Brasil;Sudeste;São Paulo;35;935653;1;;34,4;;122,7;7,5
+2007;Brasil;Sul;Paraná;41;165209;5;;6,1;;120,3;7,2
+2007;Brasil;Sul;Rio Grande do Sul;43;168010;4;;6,2;;113,8;6,7
+2007;Brasil;Sul;Santa Catarina;42;103728;7;;3,8;;122;6,3
+2008;Brasil;Centro Oeste;Distrito Federal;53;110300;8;;3,5;;131,3;4,5
+2008;Brasil;Centro Oeste;Goiás;52;82418;9;;2,7;;134;6,4
+2008;Brasil;Centro Oeste;Mato Grosso ;51;49203;14;;1,6;;149,9;7,8
+2008;Brasil;Centro Oeste;Mato Grosso do Sul;50;36219;17;;1,2;;126,4;5,3
+2008;Brasil;Nordeste;Alagoas;27;22262;20;;0,7;5,5;125,5;6,8
+2008;Brasil;Nordeste;Bahia;29;121667;6;;3,9;30;132,4;5,1
+2008;Brasil;Nordeste;Ceará;23;60416;13;;1,9;14,9;131,3;7,9
+2008;Brasil;Nordeste;Maranhão;21;37932;16;;1,2;9,3;138,7;5
+2008;Brasil;Nordeste;Paraíba;25;26890;19;;0,9;6,6;128,6;4,5
+2008;Brasil;Nordeste;Pernambuco;26;70414;11;;2,3;17,3;123,6;4,9
+2008;Brasil;Nordeste;Piauí;22;16203;23;;0,5;4;139,8;6,2
+2008;Brasil;Nordeste;Rio Grande do Norte;24;28899;18;;0,9;7,1;120,8;4,3
+2008;Brasil;Nordeste;Sergipe;28;21418;21;;0,7;5,3;129,5;2,6
+2008;Brasil;Norte;Acre;12;6410;26;;0,2;;141,4;6,2
+2008;Brasil;Norte;Amapá;16;6950;25;;0,2;;140,5;3
+2008;Brasil;Norte;Amazonas;13;48115;15;;1,5;;138,8;2,5
+2008;Brasil;Norte;Pará;15;60957;12;;2;;138,3;4,7
+2008;Brasil;Norte;Rondônia;11;17286;22;;0,6;;136;2,3
+2008;Brasil;Norte;Roraima;14;4842;27;;0,2;;133,5;6,6
+2008;Brasil;Norte;Tocantins;17;12116;24;;0,4;;142,4;6
+2008;Brasil;Sudeste;Espírito Santo;32;72091;10;;2,3;;140,3;8,6
+2008;Brasil;Sudeste;Minas Gerais;31;278608;3;;9;;129,1;4,7
+2008;Brasil;Sudeste;Rio de Janeiro;33;378286;2;;12,2;;117;4,1
+2008;Brasil;Sudeste;São Paulo;35;1042510;1;;33,5;;130,3;6,2
+2008;Brasil;Sul;Paraná;41;185684;5;;6;;125,2;4
+2008;Brasil;Sul;Rio Grande do Sul;43;190230;4;;6,1;;117,1;2,9
+2008;Brasil;Sul;Santa Catarina;42;121477;7;;3,9;;124,2;1,7
+2009;Brasil;Centro Oeste;Distrito Federal;53;124324;8;;3,7;;137,8;5
+2009;Brasil;Centro Oeste;Goiás;52;92866;9;;2,8;;134,2;0,2
+2009;Brasil;Centro Oeste;Mato Grosso ;51;52693;14;;1,6;;153,1;2,1
+2009;Brasil;Centro Oeste;Mato Grosso do Sul;50;39518;17;;1,2;;127,4;0,7
+2009;Brasil;Nordeste;Alagoas;27;24182;20;;0,7;5,4;126,7;1
+2009;Brasil;Nordeste;Bahia;29;137942;6;;4,1;30,5;132,1;-0,3
+2009;Brasil;Nordeste;Ceará;23;67200;12;;2;14,9;131,8;0,4
+2009;Brasil;Nordeste;Maranhão;21;40995;16;;1,2;9,1;139,6;0,6
+2009;Brasil;Nordeste;Paraíba;25;30230;19;;0,9;6,7;130,4;1,4
+2009;Brasil;Nordeste;Pernambuco;26;79761;10;;2,4;17,6;125,6;1,6
+2009;Brasil;Nordeste;Piauí;22;18946;23;;0,6;4,2;148,6;6,3
+2009;Brasil;Nordeste;Rio Grande do Norte;24;30941;18;;0,9;6,8;122,2;1,2
+2009;Brasil;Nordeste;Sergipe;28;21707;21;;0,7;4,8;135,1;4,3
+2009;Brasil;Norte;Acre;12;7408;26;;0,2;;145;2,5
+2009;Brasil;Norte;Amapá;16;7491;25;;0,2;;143,8;2,3
+2009;Brasil;Norte;Amazonas;13;50560;15;;1,5;;138,6;-0,2
+2009;Brasil;Norte;Pará;15;61665;13;;1,9;;133,6;-3,4
+2009;Brasil;Norte;Rondônia;11;19725;22;;0,6;;145,6;7,1
+2009;Brasil;Norte;Roraima;14;5672;27;;0,2;;141,1;5,7
+2009;Brasil;Norte;Tocantins;17;13690;24;;0,4;;146,6;2,9
+2009;Brasil;Sudeste;Espírito Santo;32;69215;11;;2,1;;130,6;-6,9
+2009;Brasil;Sudeste;Minas Gerais;31;287444;3;;8,6;;124,1;-3,9
+2009;Brasil;Sudeste;Rio de Janeiro;33;391651;2;;11,8;;119,3;1,9
+2009;Brasil;Sudeste;São Paulo;35;1127094;1;;33,8;;130,1;-0,1
+2009;Brasil;Sul;Paraná;41;196676;5;;5,9;;123;-1,7
+2009;Brasil;Sul;Rio Grande do Sul;43;204345;4;;6,1;;115,8;-1,1
+2009;Brasil;Sul;Santa Catarina;42;129099;7;;3,9;;124,1;0
+2010;Brasil;Centro Oeste;Distrito Federal;53;144174;8;;3,7;;143,9;4,4
+2010;Brasil;Centro Oeste;Goiás;52;106770;9;;2,7;;146,3;9
+2010;Brasil;Centro Oeste;Mato Grosso ;51;56601;15;;1,5;;162,3;6
+2010;Brasil;Centro Oeste;Mato Grosso do Sul;50;47271;16;;1,2;;142,3;11,7
+2010;Brasil;Nordeste;Alagoas;27;27133;20;;0,7;5,2;133,4;5,3
+2010;Brasil;Nordeste;Bahia;29;154420;6;;4;29,5;140,1;6,1
+2010;Brasil;Nordeste;Ceará;23;79336;13;;2;15,2;140,7;6,8
+2010;Brasil;Nordeste;Maranhão;21;46310;17;;1,2;8,9;151;8,2
+2010;Brasil;Nordeste;Paraíba;25;33522;19;;0,9;6,4;144,1;10,5
+2010;Brasil;Nordeste;Pernambuco;26;97190;10;;2,5;18,6;134,7;7,2
+2010;Brasil;Nordeste;Piauí;22;22269;23;;0,6;4,3;154,9;4,2
+2010;Brasil;Nordeste;Rio Grande do Norte;24;36185;18;;0,9;6,9;127,3;4,1
+2010;Brasil;Nordeste;Sergipe;28;26405;21;;0,7;5,1;142,9;5,8
+2010;Brasil;Norte;Acre;12;8342;25;;0,2;;155,6;7,3
+2010;Brasil;Norte;Amapá;16;8238;26;;0,2;;156,6;8,9
+2010;Brasil;Norte;Amazonas;13;60877;14;;1,6;;152,2;9,8
+2010;Brasil;Norte;Pará;15;82685;12;;2,1;;145,5;9
+2010;Brasil;Norte;Rondônia;11;23908;22;;0,6;;162,8;11,8
+2010;Brasil;Norte;Roraima;14;6639;27;;0,2;;153,6;8,9
+2010;Brasil;Norte;Tocantins;17;16405;24;;0,4;;171,4;16,9
+2010;Brasil;Sudeste;Espírito Santo;32;85310;11;;2,2;;150,5;15,2
+2010;Brasil;Sudeste;Minas Gerais;31;351123;3;;9;;135,3;9,1
+2010;Brasil;Sudeste;Rio de Janeiro;33;449858;2;;11,6;;125,2;5
+2010;Brasil;Sudeste;São Paulo;35;1294696;1;;33,3;;140;7,6
+2010;Brasil;Sul;Paraná;41;225205;5;;5,8;;135,2;9,9
+2010;Brasil;Sul;Rio Grande do Sul;43;241249;4;;6,2;;123,8;6,9
+2010;Brasil;Sul;Santa Catarina;42;153726;7;;4;;130,9;5,4
+2011;Brasil;Centro Oeste;Distrito Federal;53;154569;8;;3,5;;149,2;3,7
+2011;Brasil;Centro Oeste;Goiás;52;121297;9;;2,8;;154,8;5,8
+2011;Brasil;Centro Oeste;Mato Grosso ;51;69154;15;;1,6;;171,5;5,7
+2011;Brasil;Centro Oeste;Mato Grosso do Sul;50;55133;16;;1,3;;147,2;3,4
+2011;Brasil;Nordeste;Alagoas;27;31657;20;;0,7;5,4;139,6;4,7
+2011;Brasil;Nordeste;Bahia;29;166603;7;;3,8;28,6;143;2,1
+2011;Brasil;Nordeste;Ceará;23;89696;13;;2;15,4;146,2;3,9
+2011;Brasil;Nordeste;Maranhão;21;52144;17;;1,2;8,9;160,9;6,5
+2011;Brasil;Nordeste;Paraíba;25;37109;19;;0,8;6,4;152,3;5,7
+2011;Brasil;Nordeste;Pernambuco;26;110162;10;;2,5;18,9;140,8;4,5
+2011;Brasil;Nordeste;Piauí;22;25941;23;;0,6;4,4;162,9;5,2
+2011;Brasil;Nordeste;Rio Grande do Norte;24;40993;18;;0,9;7;134,1;5,4
+2011;Brasil;Nordeste;Sergipe;28;29108;21;;0,7;5;149,8;4,8
+2011;Brasil;Norte;Acre;12;8949;26;;0,2;;162,2;4,3
+2011;Brasil;Norte;Amapá;16;9409;25;;0,2;;162,3;3,6
+2011;Brasil;Norte;Amazonas;13;70734;14;;1,6;;167,9;10,4
+2011;Brasil;Norte;Pará;15;98711;12;;2,3;;151,9;4,4
+2011;Brasil;Norte;Rondônia;11;27575;22;;0,6;;171,3;5,2
+2011;Brasil;Norte;Roraima;14;7304;27;;0,2;;158,5;3,2
+2011;Brasil;Norte;Tocantins;17;18346;24;;0,4;;186,5;8,8
+2011;Brasil;Sudeste;Espírito Santo;32;105976;11;;2,4;;161,7;7,4
+2011;Brasil;Sudeste;Minas Gerais;31;400125;3;;9,1;;138,7;2,5
+2011;Brasil;Sudeste;Rio de Janeiro;33;512768;2;;11,7;;128,5;2,6
+2011;Brasil;Sudeste;São Paulo;35;1436673;1;;32,8;;145,4;3,8
+2011;Brasil;Sul;Paraná;41;257122;5;;5,9;;141,4;4,6
+2011;Brasil;Sul;Rio Grande do Sul;43;265056;4;;6,1;;129,5;4,6
+2011;Brasil;Sul;Santa Catarina;42;174068;6;;4;;135,5;3,5
+2012;Brasil;Centro Oeste;Distrito Federal;53;164101;8;;3,4;;150,4;0,8
+2012;Brasil;Centro Oeste;Goiás;52;138758;9;;2,9;;161,8;4,5
+2012;Brasil;Centro Oeste;Mato Grosso ;51;79666;14;;1,7;;190,3;11
+2012;Brasil;Centro Oeste;Mato Grosso do Sul;50;62013;16;;1,3;;156;6
+2012;Brasil;Nordeste;Alagoas;27;34650;20;;0,7;5,3;142,5;2
+2012;Brasil;Nordeste;Bahia;29;182573;7;;3,8;28;147,2;3
+2012;Brasil;Nordeste;Ceará;23;96974;13;;2;14,8;148,6;1,6
+2012;Brasil;Nordeste;Maranhão;21;60490;17;;1,3;9,3;167,7;4,3
+2012;Brasil;Nordeste;Paraíba;25;42488;19;;0,9;6,5;158,5;4,1
+2012;Brasil;Nordeste;Pernambuco;26;127989;10;;2,7;19,6;146,3;3,9
+2012;Brasil;Nordeste;Piauí;22;28638;23;;0,6;4,4;173;6,1
+2012;Brasil;Nordeste;Rio Grande do Norte;24;46412;18;;1;7,1;134,9;0,6
+2012;Brasil;Nordeste;Sergipe;28;32853;21;;0,7;5;152,1;1,5
+2012;Brasil;Norte;Acre;12;10138;26;;0,2;;172,3;6,2
+2012;Brasil;Norte;Amapá;16;11131;25;;0,2;;177,2;9,2
+2012;Brasil;Norte;Amazonas;13;72243;15;;1,5;;170,2;1,4
+2012;Brasil;Norte;Pará;15;107081;12;;2,2;;156,8;3,2
+2012;Brasil;Norte;Rondônia;11;30113;22;;0,6;;177;3,3
+2012;Brasil;Norte;Roraima;14;7711;27;;0,2;;166,2;4,8
+2012;Brasil;Norte;Tocantins;17;20684;24;;0,4;;196,2;5,2
+2012;Brasil;Sudeste;Espírito Santo;32;116851;11;;2,4;;160,5;-0,7
+2012;Brasil;Sudeste;Minas Gerais;31;442283;3;;9,2;;143,3;3,3
+2012;Brasil;Sudeste;Rio de Janeiro;33;574885;2;;11,9;;131,1;2
+2012;Brasil;Sudeste;São Paulo;35;1559033;1;;32,4;;147,5;1,5
+2012;Brasil;Sul;Paraná;41;285620;5;;5,9;;141,4;0
+2012;Brasil;Sul;Rio Grande do Sul;43;287587;4;;6;;126,7;-2,1
+2012;Brasil;Sul;Santa Catarina;42;191795;6;;4;;137,8;1,7
+2013;Brasil;Centro Oeste;Distrito Federal;53;175907;8;;3,3;;155,9;3,7
+2013;Brasil;Centro Oeste;Goiás;52;151300;9;;2,8;;166,8;3,1
+2013;Brasil;Centro Oeste;Mato Grosso ;51;89213;14;;1,7;;197;3,5
+2013;Brasil;Centro Oeste;Mato Grosso do Sul;50;69203;16;;1,3;;166,3;6,6
+2013;Brasil;Nordeste;Alagoas;27;37283;20;;0,7;5,1;143;0,4
+2013;Brasil;Nordeste;Bahia;29;204844;7;;3,8;28,3;149,2;1,3
+2013;Brasil;Nordeste;Ceará;23;109037;13;;2;15;156,1;5,1
+2013;Brasil;Nordeste;Maranhão;21;67695;17;;1,3;9,3;177;5,6
+2013;Brasil;Nordeste;Paraíba;25;46377;19;;0,9;6,4;167,7;5,8
+2013;Brasil;Nordeste;Pernambuco;26;141150;10;;2,6;19,5;150,5;2,9
+2013;Brasil;Nordeste;Piauí;22;31284;22;;0,6;4,3;177;2,3
+2013;Brasil;Nordeste;Rio Grande do Norte;24;51518;18;;1;7,1;140,9;4,5
+2013;Brasil;Nordeste;Sergipe;28;35336;21;;0,7;4,9;153,6;1
+2013;Brasil;Norte;Acre;12;11474;26;;0,2;;176,2;2,3
+2013;Brasil;Norte;Amapá;16;12763;25;;0,2;;183,3;3,4
+2013;Brasil;Norte;Amazonas;13;83051;15;;1,6;;177,7;4,4
+2013;Brasil;Norte;Pará;15;121225;11;;2,3;;160,8;2,5
+2013;Brasil;Norte;Rondônia;11;31121;23;;0,6;;178,5;0,8
+2013;Brasil;Norte;Roraima;14;9011;27;;0,2;;175,3;5,5
+2013;Brasil;Norte;Tocantins;17;23797;24;;0,4;;200,5;2,2
+2013;Brasil;Sudeste;Espírito Santo;32;117274;12;;2,2;;160,3;-0,1
+2013;Brasil;Sudeste;Minas Gerais;31;488005;3;;9,2;;144;0,5
+2013;Brasil;Sudeste;Rio de Janeiro;33;628226;2;;11,8;;132,8;1,3
+2013;Brasil;Sudeste;São Paulo;35;1715238;1;;32,2;;151,7;2,8
+2013;Brasil;Sul;Paraná;41;333481;4;;6,3;;149,2;5,5
+2013;Brasil;Sul;Rio Grande do Sul;43;332293;5;;6,2;;137,5;8,5
+2013;Brasil;Sul;Santa Catarina;42;214512;6;;4;;142,6;3,5
+2014;Brasil;Centro Oeste;Distrito Federal;53;197432;8;;3,4;;159;2
+2014;Brasil;Centro Oeste;Goiás;52;165015;9;;2,9;;170;1,9
+2014;Brasil;Centro Oeste;Mato Grosso ;51;101235;14;;1,8;;205,6;4,4
+2014;Brasil;Centro Oeste;Mato Grosso do Sul;50;78950;16;;1,4;;170,6;2,6
+2014;Brasil;Nordeste;Alagoas;27;40975;20;;0,7;5,1;149,9;4,8
+2014;Brasil;Nordeste;Bahia;29;223930;7;;3,9;27,8;152,6;2,3
+2014;Brasil;Nordeste;Ceará;23;126054;12;;2,2;15,7;162,6;4,2
+2014;Brasil;Nordeste;Maranhão;21;76842;17;;1,3;9,5;184;3,9
+2014;Brasil;Nordeste;Paraíba;25;52936;19;;0,9;6,6;172,5;2,9
+2014;Brasil;Nordeste;Pernambuco;26;155143;10;;2,7;19,3;153,4;1,9
+2014;Brasil;Nordeste;Piauí;22;37723;21;;0,7;4,7;186,4;5,3
+2014;Brasil;Nordeste;Rio Grande do Norte;24;54023;18;;0,9;6,7;143,2;1,6
+2014;Brasil;Nordeste;Sergipe;28;37472;22;;0,6;4,7;154,2;0,4
+2014;Brasil;Norte;Acre;12;13459;25;;0,2;;183,9;4,4
+2014;Brasil;Norte;Amapá;16;13400;26;;0,2;;186,3;1,7
+2014;Brasil;Norte;Amazonas;13;86669;15;;1,5;;178,1;0,2
+2014;Brasil;Norte;Pará;15;124585;13;;2,2;;167,3;4,1
+2014;Brasil;Norte;Rondônia;11;34031;23;;0,6;;185,2;3,7
+2014;Brasil;Norte;Roraima;14;9744;27;;0,2;;179,7;2,5
+2014;Brasil;Norte;Tocantins;17;26189;24;;0,5;;213;6,2
+2014;Brasil;Sudeste;Espírito Santo;32;128784;11;;2,2;;165,6;3,3
+2014;Brasil;Sudeste;Minas Gerais;31;516634;3;;8,9;;142,9;-0,7
+2014;Brasil;Sudeste;Rio de Janeiro;33;671077;2;;11,6;;134,8;1,5
+2014;Brasil;Sudeste;São Paulo;35;1858196;1;;32,2;;149,6;-1,4
+2014;Brasil;Sul;Paraná;41;348084;5;;6;;146,9;-1,5
+2014;Brasil;Sul;Rio Grande do Sul;43;357816;4;;6,2;;137,2;-0,3
+2014;Brasil;Sul;Santa Catarina;42;242553;6;;4,2;;146;2,4
+2015;Brasil;Centro Oeste;Distrito Federal;53;215613;8;;3,6;;157,4;-1
+2015;Brasil;Centro Oeste;Goiás;52;173632;9;;2,9;;162,8;-4,3
+2015;Brasil;Centro Oeste;Mato Grosso ;51;107418;14;;1,8;;201,8;-1,9
+2015;Brasil;Centro Oeste;Mato Grosso do Sul;50;83083;16;;1,4;;170,2;-0,3
+2015;Brasil;Nordeste;Alagoas;27;46367;20;;0,8;5,5;145,6;-2,9
+2015;Brasil;Nordeste;Bahia;29;245044;7;;4,1;28,9;147,4;-3,4
+2015;Brasil;Nordeste;Ceará;23;130630;12;;2,2;15,4;157,1;-3,4
+2015;Brasil;Nordeste;Maranhão;21;78476;17;;1,3;9,2;176,5;-4,1
+2015;Brasil;Nordeste;Paraíba;25;56142;19;;0,9;6,6;167,9;-2,7
+2015;Brasil;Nordeste;Pernambuco;26;156964;10;;2,6;18,5;146,9;-4,2
+2015;Brasil;Nordeste;Piauí;22;39150;21;;0,7;4,6;184,4;-1,1
+2015;Brasil;Nordeste;Rio Grande do Norte;24;57251;18;;1;6,7;140,3;-2
+2015;Brasil;Nordeste;Sergipe;28;38557;22;;0,6;4,5;149,2;-3,3
+2015;Brasil;Norte;Acre;12;13623;26;;0,2;;181,2;-1,5
+2015;Brasil;Norte;Amapá;16;13861;25;;0,2;;176,1;-5,5
+2015;Brasil;Norte;Amazonas;13;86568;15;;1,4;;168,4;-5,4
+2015;Brasil;Norte;Pará;15;130900;11;;2,2;;165,8;-0,9
+2015;Brasil;Norte;Rondônia;11;36563;23;;0,6;;179,4;-3,1
+2015;Brasil;Norte;Roraima;14;10243;27;;0,2;;179,1;-0,3
+2015;Brasil;Norte;Tocantins;17;28930;24;;0,5;;212,1;-0,4
+2015;Brasil;Sudeste;Espírito Santo;32;120366;13;;2;;162,2;-2,1
+2015;Brasil;Sudeste;Minas Gerais;31;519331;3;;8,7;;136,9;-4,3
+2015;Brasil;Sudeste;Rio de Janeiro;33;659139;2;;11;;131,1;-2,8
+2015;Brasil;Sudeste;São Paulo;35;1939902;1;;32,4;;143,4;-4,1
+2015;Brasil;Sul;Paraná;41;376963;5;;6,3;;141,9;-3,4
+2015;Brasil;Sul;Rio Grande do Sul;43;381993;4;;6,4;;130,8;-4,6
+2015;Brasil;Sul;Santa Catarina;42;249080;6;;4,2;;139,8;-4,2
+2016;Brasil;Centro Oeste;Distrito Federal;53;235540;8;;3,8;;157,4;0
+2016;Brasil;Centro Oeste;Goiás;52;181760;9;;2,9;;157,1;-3,5
+2016;Brasil;Centro Oeste;Mato Grosso ;51;123880;13;;2;;189,2;-6,2
+2016;Brasil;Centro Oeste;Mato Grosso do Sul;50;91892;15;;1,5;;165,7;-2,6
+2016;Brasil;Nordeste;Alagoas;27;49469;20;;0,8;5,5;143,6;-1,3
+2016;Brasil;Nordeste;Bahia;29;258739;6;;4,1;28,8;138,3;-6,2
+2016;Brasil;Nordeste;Ceará;23;138423;11;;2,2;15,4;150,7;-4,1
+2016;Brasil;Nordeste;Maranhão;21;85310;17;;1,4;9,5;166,6;-5,6
+2016;Brasil;Nordeste;Paraíba;25;59105;19;;0,9;6,6;162,8;-3,1
+2016;Brasil;Nordeste;Pernambuco;26;167345;10;;2,7;18,6;142,7;-2,9
+2016;Brasil;Nordeste;Piauí;22;41417;21;;0,7;4,6;172,7;-6,3
+2016;Brasil;Nordeste;Rio Grande do Norte;24;59677;18;;1;6,6;134,7;-4
+2016;Brasil;Nordeste;Sergipe;28;38877;23;;0,6;4,3;141,4;-5,2
+2016;Brasil;Norte;Acre;12;13754;26;;0,2;;176,8;-2,4
+2016;Brasil;Norte;Amapá;16;14342;25;;0,2;;167,6;-4,8
+2016;Brasil;Norte;Amazonas;13;89040;16;;1,4;;156,9;-6,8
+2016;Brasil;Norte;Pará;15;138108;12;;2,2;;159,2;-4
+2016;Brasil;Norte;Rondônia;11;39460;22;;0,6;;172;-4,1
+2016;Brasil;Norte;Roraima;14;11013;27;;0,2;;179,5;0,2
+2016;Brasil;Norte;Tocantins;17;31585;24;;0,5;;203,4;-4,1
+2016;Brasil;Sudeste;Espírito Santo;32;109264;14;;1,7;;153,7;-5,2
+2016;Brasil;Sudeste;Minas Gerais;31;544810;3;;8,7;;134,1;-2
+2016;Brasil;Sudeste;Rio de Janeiro;33;640401;2;;10,2;;125,3;-4,4
+2016;Brasil;Sudeste;São Paulo;35;2038757;1;;32,5;;139,1;-3
+2016;Brasil;Sul;Paraná;41;401814;5;;6,4;;138,2;-2,6
+2016;Brasil;Sul;Rio Grande do Sul;43;408790;4;;6,5;;127,7;-2,4
+2016;Brasil;Sul;Santa Catarina;42;256755;7;;4,1;;137;-2
+2017;Brasil;Centro Oeste;Distrito Federal;53;244683;8;;3,7;;157,9;0,3
+2017;Brasil;Centro Oeste;Goiás;52;191899;9;;2,9;;160,8;2,3
+2017;Brasil;Centro Oeste;Mato Grosso ;51;126805;13;;1,9;;212,1;12,1
+2017;Brasil;Centro Oeste;Mato Grosso do Sul;50;96372;15;;1,5;;173,8;4,9
+2017;Brasil;Nordeste;Alagoas;27;52843;20;;0,8;5,5;148,4;3,3
+2017;Brasil;Nordeste;Bahia;29;268661;7;;4,1;28,2;138,3;0
+2017;Brasil;Nordeste;Ceará;23;147890;12;;2,2;15,5;152,9;1,5
+2017;Brasil;Nordeste;Maranhão;21;89524;17;;1,4;9,4;175,5;5,3
+2017;Brasil;Nordeste;Paraíba;25;62387;19;;0,9;6,5;162,7;-0,1
+2017;Brasil;Nordeste;Pernambuco;26;181551;10;;2,8;19;145,7;2,1
+2017;Brasil;Nordeste;Piauí;22;45359;21;;0,7;4,8;186,1;7,7
+2017;Brasil;Nordeste;Rio Grande do Norte;24;64295;18;;1;6,7;135,4;0,5
+2017;Brasil;Nordeste;Sergipe;28;40704;23;;0,6;4,3;139,8;-1,1
+2017;Brasil;Norte;Acre;12;14271;26;;0,2;;177,2;0,2
+2017;Brasil;Norte;Amapá;16;15480;25;;0,2;;170,5;1,7
+2017;Brasil;Norte;Amazonas;13;93204;16;;1,4;;165,1;5,2
+2017;Brasil;Norte;Pará;15;155195;11;;2,4;;164,3;3,2
+2017;Brasil;Norte;Rondônia;11;43506;22;;0,7;;181,2;5,4
+2017;Brasil;Norte;Roraima;14;12103;27;;0,2;;183,9;2,4
+2017;Brasil;Norte;Tocantins;17;34102;24;;0,5;;209,8;3,1
+2017;Brasil;Sudeste;Espírito Santo;32;113352;14;;1,7;;154,4;0,5
+2017;Brasil;Sudeste;Minas Gerais;31;576199;3;;8,8;;136,4;1,7
+2017;Brasil;Sudeste;Rio de Janeiro;33;671362;2;;10,2;;123,3;-1,6
+2017;Brasil;Sudeste;São Paulo;35;2119854;1;;32,2;;139,5;0,3
+2017;Brasil;Sul;Paraná;41;421375;5;;6,4;;141;2
+2017;Brasil;Sul;Rio Grande do Sul;43;423151;4;;6,4;;130;1,8
+2017;Brasil;Sul;Santa Catarina;42;277192;6;;4,2;;142,4;4
+2018;Brasil;Nordeste;Bahia;29;287073;;;;;139,7;1,1
+2002;Brasil;;Brasil;;;;;;;100;
+2003;Brasil;;Brasil;;;;;;;101,1408289;1,1
+2004;Brasil;;Brasil;;;;;;;106,9665059;5,8
+2005;Brasil;;Brasil;;;;;;;110,3917138;3,2
+2006;Brasil;;Brasil;;;;;;;114,7654206;4
+2007;Brasil;;Brasil;;;;;;;121,7315338;6,1
+2008;Brasil;;Brasil;;;;;;;127,9327746;5,1
+2009;Brasil;;Brasil;;;;;;;127,7718206;-0,1
+2010;Brasil;;Brasil;;;;;;;137,3907724;7,5
+2011;Brasil;;Brasil;;;;;;;142,851263;4
+2012;Brasil;;Brasil;;;;;;;145,5956871;1,9
+2013;Brasil;;Brasil;;;;;;;149,9705793;3
+2014;Brasil;;Brasil;;;;;;;150,7263659;0,5
+2015;Brasil;;Brasil;;;;;;;145,3819451;-3,5
+2016;Brasil;;Brasil;;;;;;;140,6193533;-3,3
+2017;Brasil;;Brasil;;;;;;;142,4795632;1,3
+2002;Brasil;;Nordeste;;;;;13,1;;100;
+2003;Brasil;;Nordeste;;;;;12,8;;101,5854185;1,6
+2004;Brasil;;Nordeste;;;;;12,9;;108,3586387;6,7
+2005;Brasil;;Nordeste;;;;;13;;112,519976;3,8
+2006;Brasil;;Nordeste;;;;;13,2;;117,6829776;4,6
+2007;Brasil;;Nordeste;;;;;13;;123,2009937;4,7
+2008;Brasil;;Nordeste;;;;;13,1;;129,8229573;5,4
+2009;Brasil;;Nordeste;;;;;13,6;;131,145495;1
+2010;Brasil;;Nordeste;;;;;13,5;;139,8166121;6,6
+2011;Brasil;;Nordeste;;;;;13,3;;145,4969183;4,1
+2012;Brasil;;Nordeste;;;;;13,6;;149,8331178;3
+2013;Brasil;;Nordeste;;;;;13,6;;154,4253156;3,1
+2014;Brasil;;Nordeste;;;;;13,9;;158,7770394;2,8
+2015;Brasil;;Nordeste;;;;;14,2;;153,4549941;-3,4
+2016;Brasil;;Nordeste;;;;;14,3;;146,4767539;-4,5
+2017;Brasil;;Nordeste;;;;;14,5;;148,8901379;1,6
