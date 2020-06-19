@@ -10,14 +10,9 @@ library(ggthemes)
 library(RColorBrewer)
 library(shinydashboardPlus)
 library(sp)
-library(d3treeR)
 library(treemap)
 library(viridis)
 library(leaflet)
-
-#Carregando os dataset necessarios - SCRIPT JONATAS
-proj18 <- read.csv2("ProjecaoBA2018.csv", dec=",", header=TRUE)
-popfaixaquinquenal <- read.csv2("Pop_Faixa_Quiquena_BA_Proj2018.csv", dec=",", header=TRUE)
 
 
 #Fonte do grafico PLOTLY - Cleiton
@@ -40,13 +35,18 @@ pibmunicipios <-read.csv2("pib_municipios.csv", dec=",")
 pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRICULTURA:SERVIÇOS)
 
 #importando arquivo json - BRUNO
-municipio_bahia <- read_sf("plgn_municipios_bahia.json")#, options = "ENCODING=UTF-8")
+municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "ISO-8859-1")
+municipio_bahia@data <- municipio_bahia@data %>% rename(CD_GEOCMU=Codigo)
 
+pibmunicipios <- pibmunicipios %>% rename(CD_GEOCMU=cd_geocmu)
+
+# transformando factor em num na shapefile
+municipio_bahia@data[["CD_GEOCMU"]] <- as.numeric(as.character((municipio_bahia@data[["CD_GEOCMU"]])))
 #convertendo variavel de caracter em numerica - ABA 1 - BRUNO
-municipio_bahia$cd_geocmu <- as.numeric(municipio_bahia$cd_geocmu)
+#municipio_bahia$cd_geocmu <- as.numeric(municipio_bahia$cd_geocmu)
 
 #calcular pontos nos quais plotar etiquetas - ABA 1 - BRUNO
-centroids <- municipio_bahia %>% st_centroid() %>% bind_cols(as_data_frame(st_coordinates(.)))
+#centroids <- municipio_bahia %>% st_centroid() %>% bind_cols(as_data_frame(st_coordinates(.)))
 
 #criando variavel categorizando o pibpercentual - ABA 1 - BRUNO
 pibmunicipios$categoria_percentual <- cut(pibmunicipios$pib_percentual, 
@@ -76,7 +76,7 @@ wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$categoria_percentua
 wardpal4 <- colorFactor(palette = ("Red"), pibmunicipios$catetoria_percentual_serv)
 
 #banco unindo mapa com os dados - ABA 1 # - BRUNO
-dados_e_mapa <- pibmunicipios %>% left_join(municipio_bahia, ., by ='cd_geocmu')
+dados_e_mapa <- merge(municipio_bahia, pibmunicipios, by="CD_GEOCMU", duplicateGeoms = T) 
 
 dados_e_mapa$textomapa <- paste0(dados_e_mapa$MUNICIPIO, " = ", round(dados_e_mapa$pib_percentual,2), "%")
 
