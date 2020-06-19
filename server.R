@@ -373,7 +373,7 @@ function(input, output, session) {
       setView(lat = -13.591215, lng = -37.979077, zoom = 5.5) %>% 
       addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
                   fillColor = ~wardpal(categoria_percentual),
-                  label = ~paste0(MUNICIPIO, ": ", format(pib_percentual, big.mark = ".",decimal.mark=","), "%")) %>%
+                  label = ~paste0(MUNICIPIO.y, ": ", format(pib_percentual, big.mark = ".",decimal.mark=","), "%")) %>%
       addLegend("bottomright",pal = wardpal, values = ~categoria_percentual, opacity = 1.0, title = "Tamanho da População")
     
   })
