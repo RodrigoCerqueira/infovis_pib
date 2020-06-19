@@ -8,10 +8,7 @@ library(lubridate)
 library(shinydashboardPlus)
 library(rgdal)
 library(sf)
-#library(d3tree)
 library(leaflet)
-devtools::install_github("ricardo-bion/ggradar", 
-                         dependencies = TRUE)
 
 
 #Preparando algumas listas necessarias
@@ -22,36 +19,43 @@ municipiolist <- pib_municipios$MUNICIPIO
 setorlist <- as.list(c("categoria_percentual","categoria_percentual_agro", "categoria_percentual_ind", "categoria_percentual_serv"))
 
 #ui
-dashboardPagePlus(skin = "blue", title="SEI - PIB",
+dashboardPagePlus(skin = "blue",
                   header = dashboardHeaderPlus(
                     title = tagList(
-                      span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
-                      img(src = "SEI_transparente.png",
-                          width = "30px", height = "30px")
+                      span(class = "logo-lg", "PIB"), 
+                         img(src = "SEI_transparente.png",
+                          width = "30px", height = "13px")
                     )
                   ),
                   sidebar = dashboardSidebar(collapsed = TRUE,
-                                             
-                                             sidebarMenu(
-                                               menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
-                                              # menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
-                                               menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
-                                               menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
-                                                        menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
-                                                        menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
-                                                        menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
-                                                        menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
-                                                        menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance"))),
-                                               menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
-                                             )
-                                             
+                    
+                    sidebarMenu(
+                      menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
+                      menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
+                      menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
+                      menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
+                              menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
+                              menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
+                              menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
+                              menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
+                              menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance"))),
+                      menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
+                    )
+                    
                   ),   
                   dashboardBody(
-                    tags$head(
-                      tags$link(rel="sortcut icon", href="LogoGovBa.png", type="image/png"),
-                      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
-                      #includeHTML("google-analytics.html")
-                    ),
+                    
+                    ###################################################
+                    #declarando o CSS
+                    ##################################################
+                    
+                    #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
+                    
+                    ###################################################
+                    #iniciando as paginas
+                    ##################################################
+                    
+                    
                     tabItems(
                       
                       #################################################################################
@@ -65,43 +69,13 @@ dashboardPagePlus(skin = "blue", title="SEI - PIB",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-                                column(width=6,
-                                       box(
-                                         width = NULL,
-                                         title = paste("Taxa de Crescimento Anual dos Setores"),
-                                         status = "primary",
-                                         plotOutput("tx_setores"),
-                                         footer="Fonte: SEI-IBGE"
-                                       )
-                                ),
-                                column(width=6,
-                                       box(
-                                         width=NULL,
-                                         status="primary",
-                                         title="Radar dos Setores, PIB Anual",
-                                         plotlyOutput("radar_pib"),
-                                         footer = "Fonte: SEI"
-                                       )
-                                )), br(),
+                                column(width=6,plotOutput("radar_pib")),
+                                column(width=6,plotlyOutput("tx_setores"))
+                              ), br(),
                               fluidRow(
-                                column(width=6,
-                                       box(
-                                         width=NULL,
-                                         title="Taxa de Crescimento do PIB Anual (2002-2017), Bahia",
-                                         plotOutput("tx_bahia"),
-                                         status="primary",
-                                         footer="Fonte: SEI-IBGE"
-                                       )
-                                ),
-                                column(width=6,
-                                       box(width=NULL,
-                                           plotOutput("serie_ba_br_ne"),
-                                           title="Série encadeada do volume do PIB (base 2002=100)",
-                                           status="primary",
-                                           footer="Fonte: SEI-IBGE"
-                                       )
-                                       
-                                ))
+                                column(width=6,plotOutput("tx_bahia")),
+                                column(width=6,plotOutput("serie_ba_br_ne"))
+                                      )
                       ),
                       
                       #################################################################################
@@ -144,9 +118,9 @@ dashboardPagePlus(skin = "blue", title="SEI - PIB",
                               fluidRow(
                                 column(width=6, leafletOutput("mapa_pib"), br()),
                                 column(width=6, plotOutput("municip_pizza"))
-                              )
+                                )
                       ),
-                      
+                              
                       
                       #################################################################################
                       #Pagina resultados do registro civil
@@ -186,8 +160,8 @@ dashboardPagePlus(skin = "blue", title="SEI - PIB",
                                                 Regionais e Finanças Públicas (COREF) da SEI."
                                               )))
                       )
-                      
-                      
+
+
                     )
                     
                   )
