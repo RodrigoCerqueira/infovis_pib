@@ -33,7 +33,6 @@ PIBsetores <- read.csv2("pib_setores.csv", dec=",", h=T)
 PIBsetores$cor <- ifelse(PIBsetores$tx <0, "positivo", "negativo")
 PIBbrneba <- subset(PIBanual, UF=="Bahia" | UF=="Brasil" | UF=="Nordeste")
 PIBbrneba <- PIBbrneba %>% filter(Ano!=2018)
-f <- list(size=11)
 pibmunicipios <-read.csv2("pib_municipios.csv", dec=",")
 
 # Tidy -------------------------------------------------------------------------
@@ -100,6 +99,8 @@ function(input, output, session) {
   # PAGINA PIB ANUAL
   ######################################################################################
   
+  # ValueBoxes ------------------------------------------------------------------------
+  
   # Caixa com PIB Anual da Bahia
   output$PIBtotalBA <- renderValueBox({
     valueBox(
@@ -108,7 +109,7 @@ function(input, output, session) {
       color = "navy"
     )
   })
-  # Caixa com a posicao da Bahia no ranking do Brasil
+  # Caixa com a participação do PIB da Bahia no Brasil
   output$particip_Bahia_Brasil <- renderValueBox({
     valueBox(
       if (is.na(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)))) {
@@ -121,7 +122,7 @@ function(input, output, session) {
     )
   })
   
-  # Caixa com a posicao da Bahia no ranking do Nordeste
+  # Caixa com a participação do PIB da Bahia no Nordeste
   output$particip_Bahia_NE <- renderValueBox({
     valueBox(
       if (is.na(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano), select=c(particip_ne)))) {
@@ -135,13 +136,15 @@ function(input, output, session) {
     )
   })
   
-  # Caixa com a taxa de fecundidade em 2019
+  # Caixa com a taxa crescimento do PIB em relação ao ano anterior
   output$tx_cresc <- renderValueBox({
     valueBox(
       paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(tx)), nsmall=0,  big.mark=".", decimal.mark=","),"%"),"em relação ao ano anterior", icon = icon("percent"),
       color = "orange"
     )
   })
+  
+  # Gráficos -------------------------------------------------------------------------
   
   # Gráficos de Barras - Crescimento do VA dos Setores
   output$radar_pib <- renderPlot({
@@ -212,6 +215,8 @@ function(input, output, session) {
   # PAGINA MUNICIPAL
   #######################################################################################  
   
+  # ValueBoxes --------------------------------------------------------------------------
+  
   #Caixa com PIB do Município
   output$PIBtotalMunicipio <- renderValueBox({
     valueBox(
@@ -248,7 +253,9 @@ function(input, output, session) {
     )
   })
   
-  #MAPA PIB
+  # Gráficos e Mapas --------------------------------------------------------------------
+  
+  # Mapa dos PIBs dos municípios
   output$mapa_pib <- renderLeaflet({
     leaflet(subset(x=dados_e_mapa, subset=(ANO==input$sliderano2))) %>%
       #addTiles() %>%
@@ -261,7 +268,7 @@ function(input, output, session) {
     
   })
   
-  #PIZZA Municípios
+  # Gráfico de pizza dos Municípios
   output$municip_pizza <- renderPlot({
     ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), aes(x="", y=PARTICIP, fill= SETOR)) +
     geom_bar(stat="identity", width=1, color="white") +
