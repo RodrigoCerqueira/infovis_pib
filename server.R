@@ -40,7 +40,7 @@ pibmunicipios <-read.csv2("pib_municipios.csv", dec=",")
 fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 
 # Invertendo banco para gráfico de pizza
-pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRICULTURA:SERVIÇOS)
+pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV)
 
 # Importando shape-file
 municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "UTF-8")
@@ -55,31 +55,31 @@ municipio_bahia@data[["CD_GEOCMU"]] <- as.numeric(as.character((municipio_bahia@
 
 
 # Criando variavel categorizando o pibpercentual
-pibmunicipios$categoria_percentual <- cut(pibmunicipios$pib_percentual, 
+pibmunicipios$PIB <- cut(pibmunicipios$pib_percentual, 
                                           breaks=c(0,0.05,0.10,0.5,1,5,100), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$categoria_percentual_agro <- cut(pibmunicipios$PERCENTUAL_AGRO_BA, 
+pibmunicipios$Agropecuária <- cut(pibmunicipios$PERCENTUAL_AGRO_BA, 
                                           breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$categoria_percentual_ind <- cut(pibmunicipios$PERCENTUAL_IND_BA, 
+pibmunicipios$Indústria <- cut(pibmunicipios$PERCENTUAL_IND_BA, 
                                         breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                         labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                  "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$categoria_percentual_serv <- cut(pibmunicipios$PERCENTUAL_SERV_BA, 
+pibmunicipios$Serviços <- cut(pibmunicipios$PERCENTUAL_SERV_BA, 
                                           breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
 # Paleta de cores para o mapa
-wardpal <- colorFactor (palette = ("Blues"), pibmunicipios$categoria_percentual)
-warpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$categoria_percentual_agro)
-wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$categoria_percentual_ind)
-wardpal4 <- colorFactor(palette = ("Red"), pibmunicipios$catetoria_percentual_serv)
+wardpal <- colorFactor (palette = ("Blues"), pibmunicipios$PIB)
+warpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$Agropecuária)
+wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$Indústria)
+wardpal4 <- colorFactor(palette = ("Red"), pibmunicipios$Serviços)
 
 # PIB anual com separador de milhar - RODRIGO
 PIBanual$PIB <- format(round(as.numeric(PIBanual$PIB), 1), nsmall=0,  big.mark=".", decimal.mark=",")
@@ -262,9 +262,9 @@ function(input, output, session) {
       addProviderTiles("CartoDB.PositronNoLabels") %>%
       setView(lat = -13.591215, lng = -37.979077, zoom = 5.5) %>% 
       addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-                  fillColor = ~wardpal(categoria_percentual),
+                  fillColor = ~wardpal(PIB),
                   label = ~paste0(MUNICIPIO.x, ": ", format(pib_percentual, big.mark = ".",decimal.mark=","), "%")) %>%
-      addLegend("bottomright",pal = wardpal, values = ~categoria_percentual, opacity = 1.0, title = "Participação no PIB Estadual")
+      addLegend("bottomright",pal = wardpal, values = ~PIB, opacity = 1.0, title = "Participação no PIB Estadual")
     
   })
   

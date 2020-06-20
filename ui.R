@@ -25,7 +25,7 @@ seqano <- as.list(2002:2018) ; names(seqano) <- 2002:2018
 Anoatual <- 2017
 pib_municipios <- read.csv2("pib_municipios.csv", dec = ",")
 municipiolist <- pib_municipios$MUNICIPIO
-setorlist <- as.list(c("categoria_percentual","categoria_percentual_agro", "categoria_percentual_ind", "categoria_percentual_serv"))
+setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
 # ui.R --------------------------------------------------------------------------
 
