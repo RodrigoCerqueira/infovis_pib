@@ -43,7 +43,7 @@ fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRICULTURA:SERVIÇOS)
 
 # Importando shape-file
-municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "ISO-8859-1")
+municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "UTF-8")
 
 # Ajustando colunas dos datasets do mapa
 municipio_bahia@data <- municipio_bahia@data %>% rename(CD_GEOCMU=Codigo)
@@ -264,7 +264,7 @@ function(input, output, session) {
       addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
                   fillColor = ~wardpal(categoria_percentual),
                   label = ~paste0(MUNICIPIO.x, ": ", format(pib_percentual, big.mark = ".",decimal.mark=","), "%")) %>%
-      addLegend("bottomright",pal = wardpal, values = ~categoria_percentual, opacity = 1.0, title = "Tamanho da População")
+      addLegend("bottomright",pal = wardpal, values = ~categoria_percentual, opacity = 1.0, title = "Participação no PIB Estadual")
     
   })
   
