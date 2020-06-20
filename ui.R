@@ -1,6 +1,14 @@
-#install.packages(c("shiny","shinydashboard","shinyjs","plotly"))
+################################################################################################### 
+# SEIDataLab - Laboratorio de Dados da Superintendencia de Estudos Economicos e Sociais da Bahia
+################################################################################################### 
+#####   DESCRIÇÃO:        dashboard PIB do InfoVis Bahia
+#####   ESCRITO POR:      Rodrigo Cerqueira
+#####   SITE:             https://infovis.sei.ba.gov.br/
+#####   LICENÇA:          MIT
+#####   PROJETO:          https://github.com/RodrigoCerqueira/infovis_pib
 
-#Carregando Pacote para fazer aplicativos shiny
+# Pacotes ----------------------------------------------------------------------
+
 library(shiny)
 library(shinydashboard)
 library(plotly)
@@ -11,14 +19,16 @@ library(sf)
 library(leaflet)
 
 
-#Preparando algumas listas necessarias
+# Listas -----------------------------------------------------------------------
+
 seqano <- as.list(2002:2018) ; names(seqano) <- 2002:2018
 Anoatual <- 2017
 pib_municipios <- read.csv2("pib_municipios.csv", dec = ",")
 municipiolist <- pib_municipios$MUNICIPIO
 setorlist <- as.list(c("categoria_percentual","categoria_percentual_agro", "categoria_percentual_ind", "categoria_percentual_serv"))
 
-#ui
+# ui.R --------------------------------------------------------------------------
+
 dashboardPagePlus(skin = "blue",
                   header = dashboardHeaderPlus(
                     title = tagList(
