@@ -34,12 +34,12 @@ dashboardPagePlus(skin = "blue",
                       #menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
                       menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
                       #menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
-                              menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
-                              menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
-                              menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
-                              menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
-                              menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance"))),
-                      #menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
+                              #menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
+                              #menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
+                              #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
+                              #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
+                              #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
+                      menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
                     )
                     
                   ),   
