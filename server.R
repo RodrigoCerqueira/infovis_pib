@@ -104,7 +104,7 @@ function(input, output, session) {
   # Caixa com PIB Anual da Bahia
   output$PIBtotalBA <- renderValueBox({
     valueBox(
-      paste("R$",subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(PIB)),"Milhões"),"Produto Interno Bruto do Estado", 
+      paste("R$",format(round(as.numeric(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(PIB))),2),nsmall=0,  big.mark=".", decimal.mark=","),"Bi"),"Produto Interno Bruto do Estado", 
       icon = icon("dollar-sign"),
       color = "navy"
     )
@@ -220,7 +220,7 @@ function(input, output, session) {
   #Caixa com PIB do Município
   output$PIBtotalMunicipio <- renderValueBox({
     valueBox(
-      paste("R$",format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(PIB)),nsmall=0,  big.mark=".", decimal.mark=","),"Milhões"),"Produto Interno Bruto do Município", 
+      paste("R$",format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(PIB_TOTAL)),nsmall=0,  big.mark=".", decimal.mark=","),"Mi"),"Produto Interno Bruto do Município", 
       icon = icon("dollar-sign"),
       color = "navy"
     )
