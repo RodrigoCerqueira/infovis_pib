@@ -137,10 +137,10 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                               
                       
                       #################################################################################
-                      #Pagina resultados do registro civil
+                      #Páginas PIB temático
                       #################################################################################
                       
-                      tabItem(tabName = "aba6", "Aqui estara os resultados do RC"),
+                      tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
                       
                       #################################################################################
                       #Desenvolvedores

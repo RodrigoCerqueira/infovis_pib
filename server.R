@@ -78,9 +78,9 @@ pibmunicipios$Serviços <- cut(pibmunicipios$PERCENTUAL_SERV_BA,
 
 # Paleta de cores para o mapa
 wardpal <- colorFactor (palette = ("Blues"), pibmunicipios$PIB)
-warpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$Agropecuária)
+wardpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$Agropecuária)
 wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$Indústria)
-wardpal4 <- colorFactor(palette = ("Red"), pibmunicipios$Serviços)
+wardpal4 <- colorFactor(palette = ("Reds"), pibmunicipios$Serviços)
 
 # PIB anual com separador de milhar - RODRIGO
 PIBanual$PIB <- format(round(as.numeric(PIBanual$PIB), 1), nsmall=0,  big.mark=".", decimal.mark=",")
@@ -259,13 +259,43 @@ function(input, output, session) {
   # Mapa dos PIBs dos municípios
   output$mapa_pib <- renderLeaflet({
     leaflet(subset(x=dados_e_mapa, subset=(ANO==input$sliderano2))) %>%
-      #addTiles() %>%
-      addProviderTiles("CartoDB.PositronNoLabels") %>%
-      setView(lat = -13.591215, lng = -37.979077, zoom = 5.5) %>% 
-      addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-                  fillColor = ~wardpal(PIB),
-                  label = ~paste0(MUNICIPIO.x, ": ", format(pib_percentual, big.mark = ".",decimal.mark=","), "%")) %>%
-      addLegend("bottomright",pal = wardpal, values = ~PIB, opacity = 1.0, title = "Participação no PIB Estadual")
+      addProviderTiles("CartoDB.PositronNoLabels", options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
+      setView(lat = -13.800000, lng = -41.559343, zoom = 5.5) %>% 
+      addPolygons(stroke = T, opacity =1, color = "black", weight = 0.5, smoothFactor = 0.3, fillOpacity = 1,
+                  fillColor = ~ if (input$selectsetor == "PIB") {
+                    wardpal(PIB)
+                  } else if (input$selectsetor == "Agropecuária") {
+                    wardpal2(Agropecuária)
+                  } else if (input$selectsetor == "Indústria") {
+                    wardpal3(Indústria)
+                  } else {wardpal4(Serviços)},
+                  label = ~paste0(MUNICIPIO.x, ": ", format(if (input$selectsetor == "PIB") {
+                    pib_percentual
+                  } else if (input$selectsetor == "Agropecuária") {
+                    PERCENTUAL_AGRO_BA*100
+                  } else if (input$selectsetor == "Indústria") {
+                    PERCENTUAL_IND_BA*100
+                  } else {PERCENTUAL_SERV_BA*100}, big.mark = ".",decimal.mark=","), "%")) %>%
+      addLegend("bottomright",pal = if (input$selectsetor == "PIB") {
+        wardpal
+      } else if (input$selectsetor == "Agropecuária") {
+        wardpal2
+      } else if (input$selectsetor == "Indústria") {
+        wardpal3
+      } else {wardpal4},
+      values = ~ if (input$selectsetor == "Serviços") {
+        PIB
+      } else if (input$selectsetor == "Agropecuária") {
+        Agropecuária
+      } else if (input$selectsetor == "Indústria") {
+        Indústria
+      } else {Serviços}, opacity = 1.0, title = if (input$selectsetor == "PIB") {
+        "Participação no PIB da Bahia"
+      } else if (input$selectsetor == "Agropecuária") {
+        "Participação no VA da Agropecuária"
+      } else if (input$selectsetor == "Indústria") {
+        "Participação no VA da Indústria"
+      } else {"Participação no VA dos Serviços"})
     
   })
   
