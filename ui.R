@@ -30,12 +30,12 @@ setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
 # ui.R --------------------------------------------------------------------------
 
-dashboardPagePlus(skin = "blue",
+dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                   header = dashboardHeaderPlus(
                     title = tagList(
-                      span(class = "logo-lg", "PIB"), 
+                      span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
                          img(src = "SEI_transparente.png",
-                          width = "30px", height = "13px")
+                          width = "30px", height = "30px")
                     )
                   ),
                   sidebar = dashboardSidebar(collapsed = TRUE,
@@ -60,7 +60,10 @@ dashboardPagePlus(skin = "blue",
                     #declarando o CSS
                     ##################################################
                     
-                    #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
+                    tags$head(
+                      tags$link(rel="sortcut icon", href="LogoGovBa.png", type="image/png"),
+                      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")#, includeHTML("google-analytics.html")
+                    ),
                     
                     ###################################################
                     #iniciando as paginas
@@ -169,11 +172,38 @@ dashboardPagePlus(skin = "blue",
                                                 " ",
                                                 footer = "Estudante de Economia da UNIFACS. Estagiário da Coordenação de Contas
                                                 Regionais e Finanças Públicas (COREF) da SEI."
-                                              )))
+                                              ))))
+                      ),
+                    
+                    #################################################################################
+                    #Rodapé - logos
+                    #################################################################################
+                    
+                      hr(),
+                      fluidRow(
+                        column(width=5,
+                               align="center",
+                               a(href="http://seplan.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "Seplancol.png",width = "351px", height = "100px")
+                               )
+                        ),
+                        column(width=4,
+                               align="center",
+                               a(href="http://sei.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "sei.png",width = "201.33px", height = "100px")
+                               )
+                        ),
+                        column(width=3,
+                               align="center",
+                               a(href="http://sei.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "SeiDataLab.png",width = "225.35px", height = "100px")
+                               )
+                        )
                       )
 
-
+                    ################## Fim do rodapé
+                    
                     )
                     
                   )
-)
+
