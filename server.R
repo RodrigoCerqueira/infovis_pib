@@ -24,6 +24,7 @@ library(sp)
 library(viridis)
 library(leaflet)
 
+
 # Datasets ---------------------------------------------------------------------
 
 PIBanual <- read.csv2("pib_anual.csv", dec=",", h=T)

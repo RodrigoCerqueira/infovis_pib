@@ -17,6 +17,7 @@ library(shinydashboardPlus)
 library(rgdal)
 library(sf)
 library(leaflet)
+library(shinycssloaders)
 
 
 # Listas -----------------------------------------------------------------------
@@ -79,12 +80,12 @@ dashboardPagePlus(skin = "blue",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-                                column(width=6,plotOutput("radar_pib")),
-                                column(width=6,plotlyOutput("tx_setores"))
+                                column(width=6,withSpinner(plotOutput("radar_pib"))),
+                                column(width=6,withSpinner(plotlyOutput("tx_setores")))
                               ), br(),
                               fluidRow(
-                                column(width=6,plotOutput("tx_bahia")),
-                                column(width=6,plotOutput("serie_ba_br_ne"))
+                                column(width=6,withSpinner(plotOutput("tx_bahia"))),
+                                column(width=6,withSpinner(plotOutput("serie_ba_br_ne")))
                                       )
                       ),
                       
@@ -126,8 +127,8 @@ dashboardPagePlus(skin = "blue",
                                        valueBoxOutput("PIBparticip", width=3),
                                        valueBoxOutput("IDEM", width = 3)),
                               fluidRow(
-                                column(width=6, leafletOutput("mapa_pib"), br()),
-                                column(width=6, plotOutput("municip_pizza"))
+                                column(width=6, withSpinner(leafletOutput("mapa_pib")), br()),
+                                column(width=6, withSpinner(plotOutput("municip_pizza")))
                                 )
                       ),
                               
