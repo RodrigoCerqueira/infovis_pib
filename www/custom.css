@@ -1,4 +1,4 @@
-﻿           /* menu lateral */
+﻿		/* menu lateral */
         .skin-blue .main-sidebar {
                               background-color: #00649e;
                               }
@@ -19,10 +19,19 @@
          .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
                               background-color: #004973;
                               }
-/* body */
+		/* body */
                                 text {
      font-family: helvetica,arial,sans-serf;
 }
 								.content-wrapper, .right-side {
                                 background-color: #ffffff;
                                 }
+										
+		/* Menu principal */
+		/*.skin-blue .main-header .navbar {
+							background-color: #e7dfd5;
+							}
+		/* toggle button when hovered                  
+		.skin-blue .main-header .navbar .sidebar-toggle:hover{
+							background-color: #ff69b4;
+}
