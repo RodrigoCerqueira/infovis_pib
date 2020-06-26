@@ -18,6 +18,7 @@ library(rgdal)
 library(sf)
 library(leaflet)
 library(shinycssloaders)
+library(markdown)
 
 
 # Listas -----------------------------------------------------------------------
@@ -27,6 +28,7 @@ Anoatual <- 2017
 pib_municipios <- read.csv2("pib_municipios.csv", dec = ",")
 municipiolist <- pib_municipios$MUNICIPIO
 setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
+box_height = "20em"
 
 # ui.R --------------------------------------------------------------------------
 
@@ -41,6 +43,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                   sidebar = dashboardSidebar(collapsed = TRUE,
                     
                     sidebarMenu(
+                      menuItem("Apresentação", tabName = "aba11", icon = icon("file-alt")),
                       menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
                       #menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
                       menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
@@ -141,6 +144,31 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                       #################################################################################
                       
                       tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
+                      
+                      #################################################################################
+                      #Apresentação
+                      #################################################################################
+                      
+                      tabItem(tabName = "aba11", 
+                              titlePanel("Apresentação"),
+                              fluidRow(column(width=6,
+                                              box(width = NULL, 
+                                                  status = "primary",
+                                              fluidRow(includeMarkdown("PIBAnual.md")),
+                                              footer = p("Para mais informações acesse", 
+                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui"))
+                                              )
+                                              ),
+                                          column(width=6,
+                                                 box(width = NULL,
+                                                  status = "primary",
+                                                  fluidRow(includeMarkdown("PIBMunicipios.md")),
+                                                  footer = p("Para mais informações acesse", 
+                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui"))
+                                                  )
+                                              )
+                                       )
+                              ),
                       
                       #################################################################################
                       #Desenvolvedores
