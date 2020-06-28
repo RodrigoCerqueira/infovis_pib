@@ -86,12 +86,20 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-                                column(width=6,withSpinner(plotOutput("radar_pib"))),
-                                column(width=6,withSpinner(plotlyOutput("tx_setores")))
+                                column(width=6, box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em", textOutput("ano")),
+                                                  status = "primary", withSpinner(plotOutput("radar_pib")),
+                                                  footer = "Fonte: COREF/SEI - IBGE")),
+                                column(width=6, box(width = NULL, title = p("Participação percentual (%) dos Setores no Valor Adicionado em", textOutput("ano")),
+                                                    status = "primary",withSpinner(plotlyOutput("tx_setores")),
+                                                    footer = "Fonte: COREF/SEI - IBGE"))
                               ), br(),
                               fluidRow(
-                                column(width=6,withSpinner(plotOutput("tx_bahia"))),
-                                column(width=6,withSpinner(plotOutput("serie_ba_br_ne")))
+                                column(width=6, box(width = NULL, title = paste("Taxa de Crescimento do PIB anual (2002 - 2017)"),
+                                                    status = "primary", withSpinner(plotOutput("tx_bahia")),
+                                                    footer = "Fonte: COREF/SEI - IBGE")),
+                                column(width =6, box(width = NULL, title = paste("Série encadeada do volume do Produto interno bruto (Base: 2002=100)"),
+                                                     status = "primary", withSpinner(plotOutput("serie_ba_br_ne")),
+                                                     footer = "Fonte: COREF/SEI - IBGE"))
                                       )
                       ),
                       
@@ -156,7 +164,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                                   status = "primary",
                                               fluidRow(includeMarkdown("PIBAnual.md")),
                                               footer = p("Para mais informações acesse", 
-                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui"))
+                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui."))
                                               )
                                               ),
                                           column(width=6,
@@ -164,7 +172,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                                   status = "primary",
                                                   fluidRow(includeMarkdown("PIBMunicipios.md")),
                                                   footer = p("Para mais informações acesse", 
-                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui"))
+                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui."))
                                                   )
                                               )
                                        )

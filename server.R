@@ -145,6 +145,12 @@ function(input, output, session) {
     )
   })
   
+  # output com o valor do ano selecionado -------------------------------------------
+  
+  output$ano <- renderText({
+    input$selectano
+  })
+  
   # Gráficos -------------------------------------------------------------------------
   
   # Gráficos de Barras - Crescimento do VA dos Setores
@@ -152,10 +158,9 @@ function(input, output, session) {
     ggplot(subset(PIBsetores, subset = (Ano==input$selectano)), aes(x=setor, y=tx))+
       geom_bar(stat= "identity", aes(fill =cor), width = 0.9, show.legend = F)+
       coord_flip()+ 
-      geom_text(aes(x=setor, y=tx, label = tx))+
+      geom_text(aes(x=setor, y=tx, label = tx),position = position_dodge(width = 1))+
       theme_classic()+
-      labs(title= "Taxa de Crescimento do Valor Adicionado dos setores no ano", x = "", y= "Taxa de Crescimento (%)",
-           caption = "Fonte: SEI-IBGE")+
+      labs(x = "", y= "Taxa de Crescimento (%)")+
       theme(axis.text.x = element_blank(), axis.text.y = element_text(size = 11))+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
     
@@ -170,13 +175,12 @@ function(input, output, session) {
               r= ~estrutura,
               theta= ~setor,
               fill="toself",
-              fillcolor="#83af70",
+              fillcolor="#01a9b4",
               opacity=0.9,
-              line=list(color="#488f31", width=4),
+              line=list(color="#086972", width=4),
               hoverinfo="estrutura") %>%
       layout(polar=list(radialaxis=list(visible=T, range = c(0,20))), showlegend=F, 
-             title=list(text="Participação percentual (%) dos Setores no Valor Adicionado", x=0,
-                        font=list(size=12, face="bold")))
+             )
   })
   
   #Grafico de barras - crescimento PIB
@@ -186,7 +190,6 @@ function(input, output, session) {
       geom_bar(stat="identity", aes(fill = cor), show.legend = F)+
       geom_text(aes(x=factor(Ano), y=tx, label =tx))+
       labs(x = "Ano", y="Taxa de Crescimento (%)")+
-      labs(title = "Taxa de Crescimento do PIB anual (2002 - 2017)", caption = "Fonte: SEI-IBGE")+
       theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
             axis.title.x = element_blank())+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
@@ -199,8 +202,7 @@ function(input, output, session) {
       geom_point(aes(color=UF), size=rel(3.5), shape=16)+
       geom_line(aes(color=UF), size=rel(1.4))+ 
       scale_x_continuous(breaks =seq( from=2002, to=2017, by=1))+
-      labs(x="Ano", y="",title =
-             "Série encadeada do volume do Produto interno bruto (Base: 2002=100)", color="",caption="Fonte: SEI-IBGE")+
+      labs(x="Ano", y="", color="")+
       theme_classic()+
       theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
            axis.title.x = element_blank())+
@@ -308,10 +310,10 @@ function(input, output, session) {
     ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), aes(x="", y=PARTICIP, fill= SETOR)) +
     geom_bar(stat="identity", width=1, color="white") +
     coord_polar("y", start=0) + 
-    theme_bw() + 
+    theme_hc() + 
     theme_void()+
-    ggtitle("Participação dos setores da economia") +
-    geom_text(aes(y = PARTICIP, label = SETOR), color = "white", size=6)
+    ggtitle("Participação dos setores da economia")
+    #geom_text(aes(y = PARTICIP, label = SETOR), color = "white", size=6)
   })
   
   

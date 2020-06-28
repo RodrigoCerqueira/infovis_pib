@@ -9,4 +9,5 @@ Os dados do PIB por municípios são calculados em parceria metodológica com o 
 * **Defasagem temporal**: 2 anos
 
 ###### Nota: O PIB dos municípios é obtido a partir do rateio do valor adicionado bruto dos setores do PIB estadual entre os municípios tomando como base estruturas de atividades construídas para cada um dos municípios. 
+  
 
