@@ -1,6 +1,14 @@
-#install.packages(c("shiny","shinydashboard","shinyjs","plotly"))
+################################################################################################### 
+# SEIDataLab - Laboratorio de Dados da Superintendencia de Estudos Economicos e Sociais da Bahia
+################################################################################################### 
+#####   DESCRIÇÃO:        dashboard PIB do InfoVis Bahia
+#####   ESCRITO POR:      Rodrigo Cerqueira
+#####   SITE:             https://infovis.sei.ba.gov.br/
+#####   LICENÇA:          MIT
+#####   PROJETO:          https://github.com/RodrigoCerqueira/infovis_pib
 
-#Carregando Pacote para fazer aplicativos shiny
+# Pacotes ----------------------------------------------------------------------
+
 library(shiny)
 library(shinydashboard)
 library(plotly)
@@ -9,36 +17,39 @@ library(shinydashboardPlus)
 library(rgdal)
 library(sf)
 library(leaflet)
+library(shinycssloaders)
 
 
-#Preparando algumas listas necessarias
+# Listas -----------------------------------------------------------------------
+
 seqano <- as.list(2002:2018) ; names(seqano) <- 2002:2018
 Anoatual <- 2017
 pib_municipios <- read.csv2("pib_municipios.csv", dec = ",")
 municipiolist <- pib_municipios$MUNICIPIO
-setorlist <- as.list(c("categoria_percentual","categoria_percentual_agro", "categoria_percentual_ind", "categoria_percentual_serv"))
+setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
-#ui
-dashboardPagePlus(skin = "blue",
+# ui.R --------------------------------------------------------------------------
+
+dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                   header = dashboardHeaderPlus(
                     title = tagList(
-                      span(class = "logo-lg", "PIB"), 
+                      span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
                          img(src = "SEI_transparente.png",
-                          width = "30px", height = "13px")
+                          width = "30px", height = "30px")
                     )
                   ),
                   sidebar = dashboardSidebar(collapsed = TRUE,
                     
                     sidebarMenu(
                       menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
-                      menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
+                      #menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
                       menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
-                      menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
-                              menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
-                              menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
-                              menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
-                              menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
-                              menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance"))),
+                      #menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
+                              #menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
+                              #menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
+                              #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
+                              #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
+                              #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
                       menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
                     )
                     
@@ -49,7 +60,10 @@ dashboardPagePlus(skin = "blue",
                     #declarando o CSS
                     ##################################################
                     
-                    #tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
+                    tags$head(
+                      tags$link(rel="sortcut icon", href="LogoGovBa.png", type="image/png"),
+                      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")#, includeHTML("google-analytics.html")
+                    ),
                     
                     ###################################################
                     #iniciando as paginas
@@ -69,12 +83,12 @@ dashboardPagePlus(skin = "blue",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-                                column(width=6,plotOutput("radar_pib")),
-                                column(width=6,plotlyOutput("tx_setores"))
+                                column(width=6,withSpinner(plotOutput("radar_pib"))),
+                                column(width=6,withSpinner(plotlyOutput("tx_setores")))
                               ), br(),
                               fluidRow(
-                                column(width=6,plotOutput("tx_bahia")),
-                                column(width=6,plotOutput("serie_ba_br_ne"))
+                                column(width=6,withSpinner(plotOutput("tx_bahia"))),
+                                column(width=6,withSpinner(plotOutput("serie_ba_br_ne")))
                                       )
                       ),
                       
@@ -107,7 +121,7 @@ dashboardPagePlus(skin = "blue",
                       tabItem(tabName = "aba3", 
                               sliderInput(inputId="sliderano2", label=h4("Selecione o ano"), min=2002, max=2017, 
                                           value=2002, step = NULL, round = TRUE, ticks = TRUE, 
-                                          animate = animationOptions(interval=2500), width = 1080, sep = ".", pre = NULL, 
+                                          animate = animationOptions(interval=2500), width = 1080, sep = "", pre = NULL, 
                                           post = NULL, timeFormat = NULL,timezone = NULL, dragRange = TRUE),
                               fluidRow(column(width = 2,selectInput(inputId="selectmunicipio", label=h4("Selecione o Município"), choices = municipiolist, selected = 2000)),
                                        column(width = 4,selectInput(inputId="selectsetor", label = h4("Selecione o Setor"), choices = setorlist))),
@@ -116,17 +130,17 @@ dashboardPagePlus(skin = "blue",
                                        valueBoxOutput("PIBparticip", width=3),
                                        valueBoxOutput("IDEM", width = 3)),
                               fluidRow(
-                                column(width=6, leafletOutput("mapa_pib"), br()),
-                                column(width=6, plotOutput("municip_pizza"))
+                                column(width=6, withSpinner(leafletOutput("mapa_pib")), br()),
+                                column(width=6, withSpinner(plotOutput("municip_pizza")))
                                 )
                       ),
                               
                       
                       #################################################################################
-                      #Pagina resultados do registro civil
+                      #Páginas PIB temático
                       #################################################################################
                       
-                      tabItem(tabName = "aba6", "Aqui estara os resultados do RC"),
+                      tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
                       
                       #################################################################################
                       #Desenvolvedores
@@ -158,11 +172,38 @@ dashboardPagePlus(skin = "blue",
                                                 " ",
                                                 footer = "Estudante de Economia da UNIFACS. Estagiário da Coordenação de Contas
                                                 Regionais e Finanças Públicas (COREF) da SEI."
-                                              )))
+                                              ))))
+                      ),
+                    
+                    #################################################################################
+                    #Rodapé - logos
+                    #################################################################################
+                    
+                      hr(),
+                      fluidRow(
+                        column(width=5,
+                               align="center",
+                               a(href="http://seplan.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "Seplancol.png",width = "351px", height = "100px")
+                               )
+                        ),
+                        column(width=4,
+                               align="center",
+                               a(href="http://sei.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "sei.png",width = "201.33px", height = "100px")
+                               )
+                        ),
+                        column(width=3,
+                               align="center",
+                               a(href="http://sei.ba.gov.br", target="_blank",
+                                 img(class="align-middle", src = "SeiDataLab.png",width = "225.35px", height = "100px")
+                               )
+                        )
                       )
 
-
+                    ################## Fim do rodapé
+                    
                     )
                     
                   )
-)
+

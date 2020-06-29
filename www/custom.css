@@ -1,23 +1,23 @@
 ﻿           /* menu lateral */
-        .skin-red .main-sidebar {
-                              background-color: #AA2C1D;
+        .skin-blue .main-sidebar {
+                              background-color: #00649e;
                               }
 
         /* aba do menu lateral quando selecionado */
-        .skin-red .main-sidebar .sidebar .sidebar-menu .active a{
-                              background-color: #8E2323;
+        .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                              background-color: #013452;
 							  color: #ffffff
                               }
 
         /* abas não selecionadas do menu lateral */
-        .skin-red .main-sidebar .sidebar .sidebar-menu a{
-                              background-color: #AA2C1D;
+        .skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                              background-color: #004973;
                               color: #ffffff;
                               }
 
         /* abas do menu lateral quando o mouse passa */
-         .skin-red .main-sidebar .sidebar .sidebar-menu a:hover{
-                              background-color: #8E2323;
+         .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+                              background-color: #004973;
                               }
 /* body */
                                 text {
