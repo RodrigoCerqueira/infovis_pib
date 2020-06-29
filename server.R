@@ -148,7 +148,7 @@ function(input, output, session) {
   # output com o valor do ano selecionado -------------------------------------------
   
   output$ano <- renderText({
-    input$selectano
+    paste(input$selectano)
   })
   
   # Gráficos -------------------------------------------------------------------------
@@ -179,8 +179,7 @@ function(input, output, session) {
               opacity=0.9,
               line=list(color="#086972", width=4),
               hoverinfo="estrutura") %>%
-      layout(polar=list(radialaxis=list(visible=T, range = c(0,20))), showlegend=F, 
-             )
+      layout(polar=list(radialaxis=list(visible=T, range = c(0,20))), showlegend=F)
   })
   
   #Grafico de barras - crescimento PIB

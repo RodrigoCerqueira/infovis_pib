@@ -98,8 +98,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                                     status = "primary", withSpinner(plotOutput("tx_bahia")),
                                                     footer = "Fonte: COREF/SEI - IBGE")),
                                 column(width =6, box(width = NULL, title = paste("Série encadeada do volume do Produto interno bruto (Base: 2002=100)"),
-                                                     status = "primary", withSpinner(plotOutput("serie_ba_br_ne")),
-                                                     footer = "Fonte: COREF/SEI - IBGE"))
+                                                     status = "primary", withSpinner(plotOutput("serie_ba_br_ne"))))
                                       )
                       ),
                       
