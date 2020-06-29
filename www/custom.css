@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿           /* menu lateral */
+=======
+﻿		/* menu lateral */
+>>>>>>> 86bb41ee8ac2a4d9f3b00e575739ffba072d6fed
         .skin-blue .main-sidebar {
                               background-color: #00649e;
                               }
@@ -17,12 +21,25 @@
 
         /* abas do menu lateral quando o mouse passa */
          .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+<<<<<<< HEAD
                               background-color: #004973;
+=======
+                              background-color: #013452;
+>>>>>>> 86bb41ee8ac2a4d9f3b00e575739ffba072d6fed
                               }
-/* body */
+		/* body */
                                 text {
      font-family: helvetica,arial,sans-serf;
 }
 								.content-wrapper, .right-side {
                                 background-color: #ffffff;
                                 }
+										
+		/* Menu principal */
+		/*.skin-blue .main-header .navbar {
+							background-color: #e7dfd5;
+							}
+		/* toggle button when hovered                  
+		.skin-blue .main-header .navbar .sidebar-toggle:hover{
+							background-color: #ff69b4;
+}

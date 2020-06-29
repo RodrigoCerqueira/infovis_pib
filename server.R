@@ -151,11 +151,12 @@ function(input, output, session) {
   output$radar_pib <- renderPlot({
     ggplot(subset(PIBsetores, subset = (Ano==input$selectano)), aes(x=setor, y=tx))+
       geom_bar(stat= "identity", aes(fill =cor), width = 0.9, show.legend = F)+
+      coord_flip()+ 
       geom_text(aes(x=setor, y=tx, label = tx))+
-      theme_bw()+
+      theme_classic()+
       labs(title= "Taxa de Crescimento do Valor Adicionado dos setores no ano", x = "", y= "Taxa de Crescimento (%)",
            caption = "Fonte: SEI-IBGE")+
-      theme(axis.text.x = element_text(angle = 65, hjust = 1, size=11), axis.text.y = element_text())+
+      theme(axis.text.x = element_blank(), axis.text.y = element_text(size = 11))+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
     
   })
@@ -181,12 +182,13 @@ function(input, output, session) {
   #Grafico de barras - crescimento PIB
   output$tx_bahia <- renderPlot({
     ggplot(PIBanualBA, aes(x=factor(Ano), y=tx)) +
-      theme_bw()+
+      theme_classic()+
       geom_bar(stat="identity", aes(fill = cor), show.legend = F)+
       geom_text(aes(x=factor(Ano), y=tx, label =tx))+
       labs(x = "Ano", y="Taxa de Crescimento (%)")+
       labs(title = "Taxa de Crescimento do PIB anual (2002 - 2017)", caption = "Fonte: SEI-IBGE")+
-      theme(axis.text.x = element_text(vjust = 0.6), axis.text.y = element_text())+
+      theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
+            axis.title.x = element_blank())+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
     
   })
@@ -199,7 +201,9 @@ function(input, output, session) {
       scale_x_continuous(breaks =seq( from=2002, to=2017, by=1))+
       labs(x="Ano", y="",title =
              "Série encadeada do volume do Produto interno bruto (Base: 2002=100)", color="",caption="Fonte: SEI-IBGE")+
-      theme_bw()+
+      theme_classic()+
+      theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
+           axis.title.x = element_blank())+
       scale_colour_manual(values = c("#ffa600","#58508d","#bc5090"))
     
     
