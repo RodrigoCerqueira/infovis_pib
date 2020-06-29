@@ -53,7 +53,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                               #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
                               #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
                               #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
-                      menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
+                      menuItem("Créditos", tabName = "aba5", icon = icon("users"))
                     )
                     
                   ),   
@@ -186,36 +186,18 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                               ),
                       
                       #################################################################################
-                      #Desenvolvedores
+                      # Créditos
                       #################################################################################
                       
-                      tabItem(tabName = "aba5", h3("Desenvolvedores"), br(),
-                              fluidRow(column(width=6,
-                                              widgetUserBox(
-                                                title = "Rodrigo Barbosa de Cerqueira",
-                                                subtitle = "Especialista em Produção de Informações Econômicas",
-                                                type = NULL,
-                                                width = 12,
-                                                src = "jonatas.jpg",
-                                                color = "aqua-active",
-                                                closable = FALSE,
-                                                "",
-                                                footer = "Mestre em Economia pela UFBA. Técnico da Coordenação de Contas
-                                                Regionais e Finanças Públicas (COREF) da SEI."
-                                              )),
-                                       column(width=6,
-                                              widgetUserBox(
-                                                title = "Bruno Brasil",
-                                                subtitle = "Estagiário",
-                                                type = NULL,
-                                                width = 12,
-                                                src = "cleiton.jpg",
-                                                color = "aqua-active",
-                                                closable = FALSE,
-                                                " ",
-                                                footer = "Estudante de Economia da UNIFACS. Estagiário da Coordenação de Contas
-                                                Regionais e Finanças Públicas (COREF) da SEI."
-                                              ))))
+                      tabItem(tabName = "aba5", br(),
+                              fluidRow(column(width = 12,
+                                              box(width = NULL, 
+                                           status = "primary",
+                                           fluidRow(includeMarkdown("Creditos.md"))
+                                                  )
+                              )
+                              )
+                      )
                       ),
                     
                     #################################################################################
