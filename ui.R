@@ -86,9 +86,15 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-                                column(width=6,withSpinner(plotOutput("radar_pib"))),
-                                column(width=6,withSpinner(plotlyOutput("tx_setores")))
-                              ), br(),
+                                column(width=6,
+                                       box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em", textOutput("ano")),
+                                            status = "primary", withSpinner(plotOutput("radar_pib")),
+                                            footer = "Fonte: COREF/SEI - IBGE")),
+                                column(width=6,
+                                       box(width = NULL, title = p("Participação percentual (%) dos Setores no Valor Adicionado em", textOutput("ano")),
+                                           status = "primary", withSpinner(plotlyOutput("tx_setores")),
+                                           footer = "Fonte: COREF/SEI - IBGE"))
+                                       ), br(),
                               fluidRow(
                                 column(width=6,withSpinner(plotOutput("tx_bahia"))),
                                 column(width=6,withSpinner(plotOutput("serie_ba_br_ne")))
