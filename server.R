@@ -10,15 +10,9 @@ library(ggthemes)
 library(RColorBrewer)
 library(shinydashboardPlus)
 library(sp)
-library(d3treeR)
 library(treemap)
 library(viridis)
 library(leaflet)
-
-#Carregando os dataset necessarios - SCRIPT JONATAS
-proj18 <- read.csv2("ProjecaoBA2018.csv", dec=",", header=TRUE)
-popfaixaquinquenal <- read.csv2("Pop_Faixa_Quiquena_BA_Proj2018.csv", dec=",", header=TRUE)
-
 
 #Fonte do grafico PLOTLY - Cleiton
 fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
