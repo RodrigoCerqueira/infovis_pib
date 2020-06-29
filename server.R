@@ -151,6 +151,10 @@ function(input, output, session) {
     paste(input$selectano)
   })
   
+  output$ano2 <- renderText({
+    paste(input$selectano)
+  })
+  
   # Gráficos -------------------------------------------------------------------------
   
   # Gráficos de Barras - Crescimento do VA dos Setores
@@ -158,7 +162,8 @@ function(input, output, session) {
     ggplot(subset(PIBsetores, subset = (Ano==input$selectano)), aes(x=setor, y=tx))+
       geom_bar(stat= "identity", aes(fill =cor), width = 0.9, show.legend = F)+
       coord_flip()+ 
-      geom_text(aes(x=setor, y=tx, label = tx),position = position_dodge(width = 1))+
+      geom_text(aes(x=setor, y=tx, label = paste0(tx, "%")),position = position_dodge(width = 1), 
+                hjust = "inward", fontface = "bold")+
       theme_classic()+
       labs(x = "", y= "Taxa de Crescimento (%)")+
       theme(axis.text.x = element_blank(), axis.text.y = element_text(size = 11))+
@@ -187,7 +192,8 @@ function(input, output, session) {
     ggplot(PIBanualBA, aes(x=factor(Ano), y=tx)) +
       theme_classic()+
       geom_bar(stat="identity", aes(fill = cor), show.legend = F)+
-      geom_text(aes(x=factor(Ano), y=tx, label =tx))+
+      geom_text(aes(x=factor(Ano), y=tx, label =paste0(tx, "%")), 
+                vjust = -0.5, fontface="bold")+
       labs(x = "Ano", y="Taxa de Crescimento (%)")+
       theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
             axis.title.x = element_blank())+
