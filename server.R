@@ -145,7 +145,7 @@ function(input, output, session) {
     )
   })
   
-  # output com o valor do ano selecionado -------------------------------------------
+  # outputs text reativos _________________ -------------------------------------------
   
   output$ano <- renderText({
     paste(input$selectano)
@@ -153,6 +153,14 @@ function(input, output, session) {
   
   output$ano2 <- renderText({
     paste(input$selectano)
+  })
+  
+  output$setor <- renderText({
+    paste(input$selectsetor)
+  })
+  
+  output$municipio <- renderText({
+    paste(input$selectmunicipio)
   })
   
   # Gráficos -------------------------------------------------------------------------
@@ -316,9 +324,8 @@ function(input, output, session) {
     geom_bar(stat="identity", width=1, color="white") +
     coord_polar("y", start=0) + 
     theme_hc() + 
-    theme_void()+
-    ggtitle("Participação dos setores da economia")
-    #geom_text(aes(y = PARTICIP, label = SETOR), color = "white", size=6)
+    theme_void()
+    #geom_text(aes(y = PARTICIP/2, label = PARTICIP), color = "white", size=6)
   })
   
   

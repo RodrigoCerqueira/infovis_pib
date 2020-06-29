@@ -141,8 +141,15 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                        valueBoxOutput("PIBparticip", width=3),
                                        valueBoxOutput("IDEM", width = 3)),
                               fluidRow(
-                                column(width=6, withSpinner(leafletOutput("mapa_pib")), br()),
-                                column(width=6, withSpinner(plotOutput("municip_pizza")))
+                                column(width=6, 
+                                       box(width = NULL, title = p("Mapa com a distrubuição da participação (%) dos municípios no setor", textOutput("setor")),
+                                       withSpinner(leafletOutput("mapa_pib")),
+                                       footer = "Fonte: COREF/SEI"), br()),
+                                column(width=6, 
+                                       box(width = NULL, title = p("Participação dos setores da economia do município de", textOutput("municipio")),
+                                       withSpinner(plotOutput("municip_pizza")),
+                                       footer = "Fonte: COREF/SEI")
+                                )
                                 )
                       ),
                               
