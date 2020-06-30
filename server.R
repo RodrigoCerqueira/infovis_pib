@@ -24,17 +24,20 @@ library(sp)
 library(viridis)
 library(leaflet)
 
+options(encoding = "ISO-8859-1")
 
 # Datasets ---------------------------------------------------------------------
 
-PIBanual <- read.csv2("pib_anual.csv", dec=",", h=T)
+PIBanual <- read.csv2("pib_anual.csv", dec=",", h=T, fileEncoding = "ISO-8859-1")
 PIBanualBA <- subset(PIBanual, CodUF ==29)
 PIBanualBA$cor <- ifelse(PIBanualBA$tx <0, "positivo", "negativo")
-PIBsetores <- read.csv2("pib_setores.csv", dec=",", h=T)
+PIBsetores <- read.csv2("pib_setores.csv", dec=",", h=T, fileEncoding = "ISO-8859-1")
 PIBsetores$cor <- ifelse(PIBsetores$tx <0, "positivo", "negativo")
 PIBbrneba <- subset(PIBanual, UF=="Bahia" | UF=="Brasil" | UF=="Nordeste")
 PIBbrneba <- PIBbrneba %>% filter(Ano!=2018)
-pibmunicipios <-read.csv2("pib_municipios.csv", dec=",")
+pibmunicipios <-read.csv2("pib_municipios.csv", dec=",", fileEncoding = "ISO-8859-1")
+#pibmunicipios <- fread(file = "pib_municipios.csv", dec =",", encoding = "Latin-1")
+#pibmunicipios <- read.xlsx("pib_municipios.xlsx", sheetIndex = 1)
 
 # Tidy -------------------------------------------------------------------------
 
@@ -44,7 +47,7 @@ fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV)
 
 # Importando shape-file
-municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "UTF-8")
+municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "ISO-8859-1")
 
 # Ajustando colunas dos datasets do mapa
 municipio_bahia@data <- municipio_bahia@data %>% rename(CD_GEOCMU=Codigo)
