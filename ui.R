@@ -19,7 +19,10 @@ library(sf)
 library(leaflet)
 library(shinycssloaders)
 library(markdown)
-library(data.table)
+
+
+
+
 
 
 # Listas -----------------------------------------------------------------------
@@ -30,9 +33,12 @@ pib_municipios <- read.csv2("pib_municipios.csv", dec = ",", fileEncoding = "ISO
 municipiolist <- pib_municipios$MUNICIPIO
 setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
+
 # ui.R --------------------------------------------------------------------------
 
+
 dashboardPagePlus(skin = "blue", title = "PIB",
+
                   header = dashboardHeaderPlus(
                     title = tagList(
                       span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
@@ -159,6 +165,7 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                       #################################################################################
                       
                       tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
+
                       
                       #################################################################################
                       #Apresentação
@@ -184,6 +191,7 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                                               )
                                        )
                               ),
+
                       
                       #################################################################################
                       # Créditos
