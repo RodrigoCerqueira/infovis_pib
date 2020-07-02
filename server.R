@@ -24,17 +24,18 @@ library(sp)
 library(viridis)
 library(leaflet)
 
-
 # Datasets ---------------------------------------------------------------------
 
-PIBanual <- read.csv2("pib_anual.csv", dec=",", h=T)
+PIBanual <- read.csv2("pib_anual.csv", dec=",", h=T, fileEncoding = "ISO-8859-1")
 PIBanualBA <- subset(PIBanual, CodUF ==29)
 PIBanualBA$cor <- ifelse(PIBanualBA$tx <0, "positivo", "negativo")
-PIBsetores <- read.csv2("pib_setores.csv", dec=",", h=T)
+PIBsetores <- read.csv2("pib_setores.csv", dec=",", h=T, fileEncoding = "ISO-8859-1")
 PIBsetores$cor <- ifelse(PIBsetores$tx <0, "positivo", "negativo")
 PIBbrneba <- subset(PIBanual, UF=="Bahia" | UF=="Brasil" | UF=="Nordeste")
 PIBbrneba <- PIBbrneba %>% filter(Ano!=2018)
-pibmunicipios <-read.csv2("pib_municipios.csv", dec=",")
+pibmunicipios <-read.csv2("pib_municipios.csv", dec=",", fileEncoding = "ISO-8859-1")
+
+
 
 # Tidy -------------------------------------------------------------------------
 
@@ -44,7 +45,7 @@ fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV)
 
 # Importando shape-file
-municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "UTF-8")
+municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "ISO-8859-1")
 
 # Ajustando colunas dos datasets do mapa
 municipio_bahia@data <- municipio_bahia@data %>% rename(CD_GEOCMU=Codigo)
@@ -145,6 +146,24 @@ function(input, output, session) {
     )
   })
   
+  # outputs text reativos ---------------------------------------------------------------------
+  
+  output$ano <- renderText({
+    paste(input$selectano)
+  })
+  
+  output$ano2 <- renderText({
+    paste(input$selectano)
+  })
+  
+  output$setor <- renderText({
+    paste(input$selectsetor)
+  })
+  
+  output$municipio <- renderText({
+    paste(input$selectmunicipio)
+  })
+  
   # Gráficos -------------------------------------------------------------------------
   
   # Gráficos de Barras - Crescimento do VA dos Setores
@@ -152,10 +171,10 @@ function(input, output, session) {
     ggplot(subset(PIBsetores, subset = (Ano==input$selectano)), aes(x=setor, y=tx))+
       geom_bar(stat= "identity", aes(fill =cor), width = 0.9, show.legend = F)+
       coord_flip()+ 
-      geom_text(aes(x=setor, y=tx, label = tx))+
+      geom_text(aes(x=setor, y=tx, label = paste0(tx, "%")),position = position_dodge(width = 1), 
+                hjust = "inward", fontface = "bold")+
       theme_classic()+
-      labs(title= "Taxa de Crescimento do Valor Adicionado dos setores no ano", x = "", y= "Taxa de Crescimento (%)",
-           caption = "Fonte: SEI-IBGE")+
+      labs(x = "", y= "Taxa de Crescimento (%)")+
       theme(axis.text.x = element_blank(), axis.text.y = element_text(size = 11))+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
     
@@ -170,13 +189,11 @@ function(input, output, session) {
               r= ~estrutura,
               theta= ~setor,
               fill="toself",
-              fillcolor="#83af70",
+              fillcolor="#01a9b4",
               opacity=0.9,
-              line=list(color="#488f31", width=4),
+              line=list(color="#086972", width=4),
               hoverinfo="estrutura") %>%
-      layout(polar=list(radialaxis=list(visible=T, range = c(0,20))), showlegend=F, 
-             title=list(text="Participação percentual (%) dos Setores no Valor Adicionado", x=0,
-                        font=list(size=12, face="bold")))
+      layout(polar=list(radialaxis=list(visible=T, range = c(0,20))), showlegend=F)
   })
   
   #Grafico de barras - crescimento PIB
@@ -184,9 +201,9 @@ function(input, output, session) {
     ggplot(PIBanualBA, aes(x=factor(Ano), y=tx)) +
       theme_classic()+
       geom_bar(stat="identity", aes(fill = cor), show.legend = F)+
-      geom_text(aes(x=factor(Ano), y=tx, label =tx))+
+      geom_text(aes(x=factor(Ano), y=tx, label =paste0(tx, "%")), 
+                vjust = -0.5, fontface="bold")+
       labs(x = "Ano", y="Taxa de Crescimento (%)")+
-      labs(title = "Taxa de Crescimento do PIB anual (2002 - 2017)", caption = "Fonte: SEI-IBGE")+
       theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
             axis.title.x = element_blank())+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
@@ -199,8 +216,7 @@ function(input, output, session) {
       geom_point(aes(color=UF), size=rel(3.5), shape=16)+
       geom_line(aes(color=UF), size=rel(1.4))+ 
       scale_x_continuous(breaks =seq( from=2002, to=2017, by=1))+
-      labs(x="Ano", y="",title =
-             "Série encadeada do volume do Produto interno bruto (Base: 2002=100)", color="",caption="Fonte: SEI-IBGE")+
+      labs(x="Ano", y="", color="")+
       theme_classic()+
       theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
            axis.title.x = element_blank())+
@@ -308,11 +324,16 @@ function(input, output, session) {
     ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), aes(x="", y=PARTICIP, fill= SETOR)) +
     geom_bar(stat="identity", width=1, color="white") +
     coord_polar("y", start=0) + 
-    theme_bw() + 
-    theme_void()+
-    ggtitle("Participação dos setores da economia") +
-    geom_text(aes(y = PARTICIP, label = SETOR), color = "white", size=6)
+    theme_hc() + 
+    theme_void()
+    #geom_text(aes(y = PARTICIP/2, label = PARTICIP), color = "white", size=6)
   })
+  
+  #######################################################################################
+  # PAGINA TEMÁTICO
+  #######################################################################################
+  
+  # Agronegócio -------------------------------------------------------------------------
   
   
 }
