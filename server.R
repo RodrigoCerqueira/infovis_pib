@@ -1,10 +1,10 @@
 ################################################################################################### 
 # SEIDataLab - Laboratorio de Dados da Superintendencia de Estudos Economicos e Sociais da Bahia
 ################################################################################################### 
-#####   DESCRIÇÃO:        dashboard PIB do InfoVis Bahia
+#####   DESCRIÃ‡ÃƒO:        dashboard PIB do InfoVis Bahia
 #####   ESCRITO POR:      Rodrigo Cerqueira
 #####   SITE:             https://infovis.sei.ba.gov.br/
-#####   LICENÇA:          MIT
+#####   LICENÃ‡A:          MIT
 #####   PROJETO:          https://github.com/RodrigoCerqueira/infovis_pib
 
 # Pacotes ----------------------------------------------------------------------
@@ -34,15 +34,14 @@ PIBsetores$cor <- ifelse(PIBsetores$tx <0, "positivo", "negativo")
 PIBbrneba <- subset(PIBanual, UF=="Bahia" | UF=="Brasil" | UF=="Nordeste")
 PIBbrneba <- PIBbrneba %>% filter(Ano!=2018)
 pibmunicipios <-read.csv2("pib_municipios.csv", dec=",", fileEncoding = "ISO-8859-1")
-#pibmunicipios <- fread(file = "pib_municipios.csv", dec =",", encoding = "Latin-1")
-#pibmunicipios <- read.xlsx("pib_municipios.xlsx", sheetIndex = 1)
+
 
 
 # Tidy -------------------------------------------------------------------------
 
 fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 
-# Invertendo banco para gráfico de pizza
+# Invertendo banco para grÃ¡fico de pizza
 pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV)
 
 # Importando shape-file
@@ -63,26 +62,26 @@ pibmunicipios$PIB <- cut(pibmunicipios$pib_percentual,
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$Agropecuária <- cut(pibmunicipios$PERCENTUAL_AGRO_BA, 
+pibmunicipios$AgropecuÃ¡ria <- cut(pibmunicipios$PERCENTUAL_AGRO_BA, 
                                           breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$Indústria <- cut(pibmunicipios$PERCENTUAL_IND_BA, 
+pibmunicipios$IndÃºstria <- cut(pibmunicipios$PERCENTUAL_IND_BA, 
                                         breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                         labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                  "0,5% - 1%","1% - 5%", ">5%"))
 
-pibmunicipios$Serviços <- cut(pibmunicipios$PERCENTUAL_SERV_BA, 
+pibmunicipios$ServiÃ§os <- cut(pibmunicipios$PERCENTUAL_SERV_BA, 
                                           breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
 # Paleta de cores para o mapa
 wardpal <- colorFactor (palette = ("Blues"), pibmunicipios$PIB)
-wardpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$Agropecuária)
-wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$Indústria)
-wardpal4 <- colorFactor(palette = ("Reds"), pibmunicipios$Serviços)
+wardpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$AgropecuÃ¡ria)
+wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$IndÃºstria)
+wardpal4 <- colorFactor(palette = ("Reds"), pibmunicipios$ServiÃ§os)
 
 # PIB anual com separador de milhar - RODRIGO
 PIBanual$PIB <- format(round(as.numeric(PIBanual$PIB), 1), nsmall=0,  big.mark=".", decimal.mark=",")
@@ -90,7 +89,7 @@ PIBanual$PIB <- format(round(as.numeric(PIBanual$PIB), 1), nsmall=0,  big.mark="
 # Merge do dataset com o mapa
 dados_e_mapa <- merge(municipio_bahia, pibmunicipios, by="CD_GEOCMU", duplicateGeoms = T) 
 
-# Criando variável que será exibida no mapa
+# Criando variÃ¡vel que serÃ¡ exibida no mapa
 dados_e_mapa$textomapa <- paste0(dados_e_mapa$MUNICIPIO, " = ", round(dados_e_mapa$pib_percentual,2), "%")
 
 
@@ -112,7 +111,7 @@ function(input, output, session) {
       color = "navy"
     )
   })
-  # Caixa com a participação do PIB da Bahia no Brasil
+  # Caixa com a participaÃ§Ã£o do PIB da Bahia no Brasil
   output$particip_Bahia_Brasil <- renderValueBox({
     valueBox(
       if (is.na(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)))) {
@@ -120,12 +119,12 @@ function(input, output, session) {
         } else {
         paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)),nsmall=0,  big.mark=".", decimal.mark=","),"% do Brasil")
       },
-      "participação no Brasil", icon = icon("globe-americas"),
+      "participaÃ§Ã£o no Brasil", icon = icon("globe-americas"),
       color = "purple"
     )
   })
   
-  # Caixa com a participação do PIB da Bahia no Nordeste
+  # Caixa com a participaÃ§Ã£o do PIB da Bahia no Nordeste
   output$particip_Bahia_NE <- renderValueBox({
     valueBox(
       if (is.na(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano), select=c(particip_ne)))) {
@@ -134,20 +133,20 @@ function(input, output, session) {
         paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select =c(particip_ne)),nsmall=0,  big.mark=".", decimal.mark=","),"% do NE")
       },
       #paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select =c(particip_ne)),nsmall=0,  big.mark=".", decimal.mark=","),"% do NE"),
-      "participação no Nordeste", icon = icon("umbrella-beach"),
+      "participaÃ§Ã£o no Nordeste", icon = icon("umbrella-beach"),
       color = "maroon"
     )
   })
   
-  # Caixa com a taxa crescimento do PIB em relação ao ano anterior
+  # Caixa com a taxa crescimento do PIB em relaÃ§Ã£o ao ano anterior
   output$tx_cresc <- renderValueBox({
     valueBox(
-      paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(tx)), nsmall=0,  big.mark=".", decimal.mark=","),"%"),"em relação ao ano anterior", icon = icon("percent"),
+      paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(tx)), nsmall=0,  big.mark=".", decimal.mark=","),"%"),"em relaÃ§Ã£o ao ano anterior", icon = icon("percent"),
       color = "orange"
     )
   })
   
-  # outputs text reativos _________________ -------------------------------------------
+  # outputs text reativos ---------------------------------------------------------------------
   
   output$ano <- renderText({
     paste(input$selectano)
@@ -165,9 +164,9 @@ function(input, output, session) {
     paste(input$selectmunicipio)
   })
   
-  # Gráficos -------------------------------------------------------------------------
+  # GrÃ¡ficos -------------------------------------------------------------------------
   
-  # Gráficos de Barras - Crescimento do VA dos Setores
+  # GrÃ¡ficos de Barras - Crescimento do VA dos Setores
   output$radar_pib <- renderPlot({
     ggplot(subset(PIBsetores, subset = (Ano==input$selectano)), aes(x=setor, y=tx))+
       geom_bar(stat= "identity", aes(fill =cor), width = 0.9, show.legend = F)+
@@ -211,7 +210,7 @@ function(input, output, session) {
     
   })
   
-  #Série encadeada do volume do PIB - BA, BR, NE
+  #SÃ©rie encadeada do volume do PIB - BA, BR, NE
   output$serie_ba_br_ne <- renderPlot({ 
     ggplot(PIBbrneba, aes(x=Ano, y=indice))+
       geom_point(aes(color=UF), size=rel(3.5), shape=16)+
@@ -239,10 +238,10 @@ function(input, output, session) {
   
   # ValueBoxes --------------------------------------------------------------------------
   
-  #Caixa com PIB do Município
+  #Caixa com PIB do MunicÃ­pio
   output$PIBtotalMunicipio <- renderValueBox({
     valueBox(
-      paste("R$",format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(PIB_TOTAL)),nsmall=0,  big.mark=".", decimal.mark=","),"Mi"),"Produto Interno Bruto do Município", 
+      paste("R$",format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(PIB_TOTAL)),nsmall=0,  big.mark=".", decimal.mark=","),"Mi"),"Produto Interno Bruto do MunicÃ­pio", 
       icon = icon("dollar-sign"),
       color = "navy"
     )
@@ -257,27 +256,27 @@ function(input, output, session) {
     )
   })
   
-  #Caixa com Participação dos Municípios Bahia
+  #Caixa com ParticipaÃ§Ã£o dos MunicÃ­pios Bahia
   output$PIBparticip <- renderValueBox({
     valueBox(
-      paste0(format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(pib_percentual)),nsmall=0,  big.mark=".", decimal.mark=","),"%"),"Participação do Município no PIB BA", 
+      paste0(format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(pib_percentual)),nsmall=0,  big.mark=".", decimal.mark=","),"%"),"ParticipaÃ§Ã£o do MunicÃ­pio no PIB BA", 
       icon = icon("percent"),
       color = "maroon"
     )
   })
   
-  #Caixa com IDEM dos Municípios Bahia
+  #Caixa com IDEM dos MunicÃ­pios Bahia
   output$IDEM <- renderValueBox({
     valueBox(
-      paste0(format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(IDEM)),nsmall=0,  big.mark=".", decimal.mark=",")),"IDEM do Município no PIB BA", 
+      paste0(format(subset(x=pibmunicipios, subset=(MUNICIPIO==input$selectmunicipio & ANO==input$sliderano2),select = c(IDEM)),nsmall=0,  big.mark=".", decimal.mark=",")),"IDEM do MunicÃ­pio no PIB BA", 
       icon = icon("chart-line"),
       color = "orange"
     )
   })
   
-  # Gráficos e Mapas --------------------------------------------------------------------
+  # GrÃ¡ficos e Mapas --------------------------------------------------------------------
   
-  # Mapa dos PIBs dos municípios
+  # Mapa dos PIBs dos municÃ­pios
   output$mapa_pib <- renderLeaflet({
     leaflet(subset(x=dados_e_mapa, subset=(ANO==input$sliderano2))) %>%
       addProviderTiles("CartoDB.PositronNoLabels", options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
@@ -285,42 +284,42 @@ function(input, output, session) {
       addPolygons(stroke = T, opacity =1, color = "black", weight = 0.5, smoothFactor = 0.3, fillOpacity = 1,
                   fillColor = ~ if (input$selectsetor == "PIB") {
                     wardpal(PIB)
-                  } else if (input$selectsetor == "Agropecuária") {
-                    wardpal2(Agropecuária)
-                  } else if (input$selectsetor == "Indústria") {
-                    wardpal3(Indústria)
-                  } else {wardpal4(Serviços)},
+                  } else if (input$selectsetor == "AgropecuÃ¡ria") {
+                    wardpal2(AgropecuÃ¡ria)
+                  } else if (input$selectsetor == "IndÃºstria") {
+                    wardpal3(IndÃºstria)
+                  } else {wardpal4(ServiÃ§os)},
                   label = ~paste0(MUNICIPIO.x, ": ", format(if (input$selectsetor == "PIB") {
                     pib_percentual
-                  } else if (input$selectsetor == "Agropecuária") {
+                  } else if (input$selectsetor == "AgropecuÃ¡ria") {
                     PERCENTUAL_AGRO_BA*100
-                  } else if (input$selectsetor == "Indústria") {
+                  } else if (input$selectsetor == "IndÃºstria") {
                     PERCENTUAL_IND_BA*100
                   } else {PERCENTUAL_SERV_BA*100}, big.mark = ".",decimal.mark=","), "%")) %>%
       addLegend("bottomright",pal = if (input$selectsetor == "PIB") {
         wardpal
-      } else if (input$selectsetor == "Agropecuária") {
+      } else if (input$selectsetor == "AgropecuÃ¡ria") {
         wardpal2
-      } else if (input$selectsetor == "Indústria") {
+      } else if (input$selectsetor == "IndÃºstria") {
         wardpal3
       } else {wardpal4},
-      values = ~ if (input$selectsetor == "Serviços") {
+      values = ~ if (input$selectsetor == "ServiÃ§os") {
         PIB
-      } else if (input$selectsetor == "Agropecuária") {
-        Agropecuária
-      } else if (input$selectsetor == "Indústria") {
-        Indústria
-      } else {Serviços}, opacity = 1.0, title = if (input$selectsetor == "PIB") {
-        "Participação no PIB da Bahia"
-      } else if (input$selectsetor == "Agropecuária") {
-        "Participação no VA da Agropecuária"
-      } else if (input$selectsetor == "Indústria") {
-        "Participação no VA da Indústria"
-      } else {"Participação no VA dos Serviços"})
+      } else if (input$selectsetor == "AgropecuÃ¡ria") {
+        AgropecuÃ¡ria
+      } else if (input$selectsetor == "IndÃºstria") {
+        IndÃºstria
+      } else {ServiÃ§os}, opacity = 1.0, title = if (input$selectsetor == "PIB") {
+        "ParticipaÃ§Ã£o no PIB da Bahia"
+      } else if (input$selectsetor == "AgropecuÃ¡ria") {
+        "ParticipaÃ§Ã£o no VA da AgropecuÃ¡ria"
+      } else if (input$selectsetor == "IndÃºstria") {
+        "ParticipaÃ§Ã£o no VA da IndÃºstria"
+      } else {"ParticipaÃ§Ã£o no VA dos ServiÃ§os"})
     
   })
   
-  # Gráfico de pizza dos Municípios
+  # GrÃ¡fico de pizza dos MunicÃ­pios
   output$municip_pizza <- renderPlot({
     ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), aes(x="", y=PARTICIP, fill= SETOR)) +
     geom_bar(stat="identity", width=1, color="white") +
@@ -329,6 +328,12 @@ function(input, output, session) {
     theme_void()
     #geom_text(aes(y = PARTICIP/2, label = PARTICIP), color = "white", size=6)
   })
+  
+  #######################################################################################
+  # PAGINA TEMÃTICO
+  #######################################################################################
+  
+  # AgronegÃ³cio -------------------------------------------------------------------------
   
   
 }
