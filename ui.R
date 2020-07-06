@@ -21,18 +21,24 @@ library(shinycssloaders)
 library(markdown)
 
 
+
+
+
+
 # Listas -----------------------------------------------------------------------
 
 seqano <- as.list(2002:2018) ; names(seqano) <- 2002:2018
 Anoatual <- 2017
-pib_municipios <- read.csv2("pib_municipios.csv", dec = ",")
+pib_municipios <- read.csv2("pib_municipios.csv", dec = ",", fileEncoding = "ISO-8859-1")
 municipiolist <- pib_municipios$MUNICIPIO
 setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
-box_height = "20em"
+
 
 # ui.R --------------------------------------------------------------------------
 
-dashboardPagePlus(skin = "blue", title = "SEI - PIB",
+
+dashboardPagePlus(skin = "blue", title = "PIB",
+
                   header = dashboardHeaderPlus(
                     title = tagList(
                       span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
@@ -53,7 +59,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                               #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
                               #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
                               #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
-                      menuItem("Desenvolvedores", tabName = "aba5", icon = icon("code"))
+                      menuItem("Créditos", tabName = "aba5", icon = icon("users"))
                     )
                     
                   ),   
@@ -86,6 +92,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
+<<<<<<< HEAD
                                 column(width=6,
                                        box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em", textOutput("ano")),
                                             status = "primary", withSpinner(plotOutput("radar_pib")),
@@ -95,9 +102,22 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                            status = "primary", withSpinner(plotlyOutput("tx_setores")),
                                            footer = "Fonte: COREF/SEI - IBGE"))
                                        ), br(),
+=======
+                                column(width=6, box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em",  textOutput("ano")),
+                                                  status = "primary", withSpinner(plotOutput("radar_pib")),
+                                                  footer = "Fonte: COREF/SEI - IBGE")),
+                                column(width=6, box(width = NULL, title = p("Participação percentual (%) dos Setores no Valor Adicionado em",  textOutput("ano2")),
+                                                    status = "primary",withSpinner(plotlyOutput("tx_setores")),
+                                                    footer = "Fonte: COREF/SEI - IBGE"))
+                              ), br(),
+>>>>>>> 1de69a04ff5a2979dea91becbbd022cb7b7eb009
                               fluidRow(
-                                column(width=6,withSpinner(plotOutput("tx_bahia"))),
-                                column(width=6,withSpinner(plotOutput("serie_ba_br_ne")))
+                                column(width=6, box(width = NULL, title = paste("Taxa de Crescimento do PIB anual (2002 - 2017)"),
+                                                    status = "primary", withSpinner(plotOutput("tx_bahia")),
+                                                    footer = "Fonte: COREF/SEI - IBGE")),
+                                column(width =6, box(width = NULL, title = paste("Série encadeada do volume do Produto interno bruto (Base: 2002=100)"),
+                                                     status = "primary", withSpinner(plotOutput("serie_ba_br_ne")),
+                                                     footer = "Fonte: COREF/SEI - IBGE"))
                                       )
                       ),
                       
@@ -139,8 +159,15 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                        valueBoxOutput("PIBparticip", width=3),
                                        valueBoxOutput("IDEM", width = 3)),
                               fluidRow(
-                                column(width=6, withSpinner(leafletOutput("mapa_pib")), br()),
-                                column(width=6, withSpinner(plotOutput("municip_pizza")))
+                                column(width=6, 
+                                       box(width = NULL, title = p("Mapa com a distrubuição da participação (%) dos municípios no setor", textOutput("setor")),
+                                       withSpinner(leafletOutput("mapa_pib")),
+                                       footer = "Fonte: COREF/SEI"), br()),
+                                column(width=6, 
+                                       box(width = NULL, title = p("Participação dos setores da economia do município de", textOutput("municipio")),
+                                       withSpinner(plotOutput("municip_pizza")),
+                                       footer = "Fonte: COREF/SEI")
+                                )
                                 )
                       ),
                               
@@ -150,6 +177,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                       #################################################################################
                       
                       tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
+
                       
                       #################################################################################
                       #Apresentação
@@ -162,7 +190,7 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                                   status = "primary",
                                               fluidRow(includeMarkdown("PIBAnual.md")),
                                               footer = p("Para mais informações acesse", 
-                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui"))
+                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui."))
                                               )
                                               ),
                                           column(width=6,
@@ -170,43 +198,26 @@ dashboardPagePlus(skin = "blue", title = "SEI - PIB",
                                                   status = "primary",
                                                   fluidRow(includeMarkdown("PIBMunicipios.md")),
                                                   footer = p("Para mais informações acesse", 
-                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui"))
+                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui."))
                                                   )
                                               )
                                        )
                               ),
+
                       
                       #################################################################################
-                      #Desenvolvedores
+                      # Créditos
                       #################################################################################
                       
-                      tabItem(tabName = "aba5", h3("Desenvolvedores"), br(),
-                              fluidRow(column(width=6,
-                                              widgetUserBox(
-                                                title = "Rodrigo Barbosa de Cerqueira",
-                                                subtitle = "Especialista em Produção de Informações Econômicas",
-                                                type = NULL,
-                                                width = 12,
-                                                src = "jonatas.jpg",
-                                                color = "aqua-active",
-                                                closable = FALSE,
-                                                "",
-                                                footer = "Mestre em Economia pela UFBA. Técnico da Coordenação de Contas
-                                                Regionais e Finanças Públicas (COREF) da SEI."
-                                              )),
-                                       column(width=6,
-                                              widgetUserBox(
-                                                title = "Bruno Brasil",
-                                                subtitle = "Estagiário",
-                                                type = NULL,
-                                                width = 12,
-                                                src = "cleiton.jpg",
-                                                color = "aqua-active",
-                                                closable = FALSE,
-                                                " ",
-                                                footer = "Estudante de Economia da UNIFACS. Estagiário da Coordenação de Contas
-                                                Regionais e Finanças Públicas (COREF) da SEI."
-                                              ))))
+                      tabItem(tabName = "aba5", br(),
+                              fluidRow(column(width = 12,
+                                              box(width = NULL, 
+                                           status = "primary",
+                                           fluidRow(includeMarkdown("Creditos.md"))
+                                                  )
+                              )
+                              )
+                      )
                       ),
                     
                     #################################################################################
