@@ -42,7 +42,7 @@ pibmunicipios <-read.csv2("pib_municipios.csv", dec=",", fileEncoding = "ISO-885
 fonte_plotly <- list(family = "sans serif",size = 12, color = 'black')
 
 # Invertendo banco para gráfico de pizza
-pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV)
+pibmunicipios_pizza <- pibmunicipios %>% gather(SETOR, PARTICIP,AGRO:SERV) %>% arrange(-PARTICIP)
 
 # Importando shape-file
 municipio_bahia <- rgdal::readOGR(dsn=getwd(), layer="DPA_A_GEN_2019_05_14_GCS_SIR_SEI", encoding = "ISO-8859-1")
@@ -55,12 +55,18 @@ pibmunicipios <- pibmunicipios %>% rename(CD_GEOCMU=cd_geocmu)
 # transformando factor em num na shapefile
 municipio_bahia@data[["CD_GEOCMU"]] <- as.numeric(as.character((municipio_bahia@data[["CD_GEOCMU"]])))
 
+pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(pib_percentual = PIB_TOTAL/sum(PIB_TOTAL)*100)
+pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_AGRO_BA = VA_AGRO/sum(VA_AGRO))
+pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_IND_BA = VA_IND/sum(VA_IND))
+pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_SERV_BA = VA_SER/sum(VA_SER)) %>% 
+  as.data.frame()
+
 
 # Criando variavel categorizando o pibpercentual
 pibmunicipios$PIB <- cut(pibmunicipios$pib_percentual, 
-                                          breaks=c(0,0.05,0.10,0.5,1,5,100), 
+                                          breaks=c(0,0.05,0.10,0.5,1,5,10,20,100), 
                                           labels=c("0 - 0,05%", "0,05% - 0,1%", "0,1% - 0,5%", 
-                                                   "0,5% - 1%","1% - 5%", ">5%"))
+                                                   "0,5% - 1%","1% - 5%", "5% - 10%", "10%-20%", ">20%"))
 
 pibmunicipios$Agropecuária <- cut(pibmunicipios$PERCENTUAL_AGRO_BA, 
                                           breaks=c(0,0.0005,0.0010,0.005,0.01,0.05,1), 
@@ -78,10 +84,10 @@ pibmunicipios$Serviços <- cut(pibmunicipios$PERCENTUAL_SERV_BA,
                                                    "0,5% - 1%","1% - 5%", ">5%"))
 
 # Paleta de cores para o mapa
-wardpal <- colorFactor (palette = ("Blues"), pibmunicipios$PIB)
+wardpal <- colorFactor (palette = ("BuPu"), pibmunicipios$PIB)
 wardpal2 <- colorFactor(palette = ("Greens"), pibmunicipios$Agropecuária)
 wardpal3 <- colorFactor(palette = ("Oranges"), pibmunicipios$Indústria)
-wardpal4 <- colorFactor(palette = ("Reds"), pibmunicipios$Serviços)
+wardpal4 <- colorFactor(palette = ("Blues"), pibmunicipios$Serviços)
 
 # PIB anual com separador de milhar - RODRIGO
 PIBanual$PIB <- format(round(as.numeric(PIBanual$PIB), 1), nsmall=0,  big.mark=".", decimal.mark=",")
@@ -91,7 +97,6 @@ dados_e_mapa <- merge(municipio_bahia, pibmunicipios, by="CD_GEOCMU", duplicateG
 
 # Criando variável que será exibida no mapa
 dados_e_mapa$textomapa <- paste0(dados_e_mapa$MUNICIPIO, " = ", round(dados_e_mapa$pib_percentual,2), "%")
-
 
 # Server ----------------------------------------------------------------------------
 
@@ -290,26 +295,29 @@ function(input, output, session) {
                     wardpal3(Indústria)
                   } else {wardpal4(Serviços)},
                   label = ~paste0(MUNICIPIO.x, ": ", format(if (input$selectsetor == "PIB") {
-                    pib_percentual
+                    round(pib_percentual,2)
                   } else if (input$selectsetor == "Agropecuária") {
-                    PERCENTUAL_AGRO_BA*100
+                    round(PERCENTUAL_AGRO_BA*100,2)
                   } else if (input$selectsetor == "Indústria") {
-                    PERCENTUAL_IND_BA*100
-                  } else {PERCENTUAL_SERV_BA*100}, big.mark = ".",decimal.mark=","), "%")) %>%
-      addLegend("bottomright",pal = if (input$selectsetor == "PIB") {
+                    round(PERCENTUAL_IND_BA*100,2)
+                  } else {round(PERCENTUAL_SERV_BA*100,2)}, big.mark = ".",decimal.mark=","), "%")) %>%
+      addLegend("bottomright",
+                pal = if (input$selectsetor == "PIB") {
         wardpal
       } else if (input$selectsetor == "Agropecuária") {
         wardpal2
       } else if (input$selectsetor == "Indústria") {
         wardpal3
       } else {wardpal4},
-      values = ~ if (input$selectsetor == "Serviços") {
+      values = ~ if (input$selectsetor == "PIB") {
         PIB
       } else if (input$selectsetor == "Agropecuária") {
         Agropecuária
       } else if (input$selectsetor == "Indústria") {
         Indústria
-      } else {Serviços}, opacity = 1.0, title = if (input$selectsetor == "PIB") {
+      } else {Serviços}, 
+      opacity = 1.0, 
+      title = if (input$selectsetor == "PIB") {
         "Participação no PIB da Bahia"
       } else if (input$selectsetor == "Agropecuária") {
         "Participação no VA da Agropecuária"
@@ -319,14 +327,20 @@ function(input, output, session) {
     
   })
   
-  # Gráfico de pizza dos Municípios
+  # Gráfico de rosca dos Municípios
   output$municip_pizza <- renderPlot({
-    ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), aes(x="", y=PARTICIP, fill= SETOR)) +
+    ggplot(subset(pibmunicipios_pizza, subset=(ANO==input$sliderano2 & MUNICIPIO==input$selectmunicipio)), 
+           aes(x=2, y=PARTICIP, fill= SETOR)) +
     geom_bar(stat="identity", width=1, color="white") +
     coord_polar("y", start=0) + 
+    theme(legend.position = "bottom") +
     theme_hc() + 
+    #geom_text(aes(y = (cumsum(PARTICIP) - 0.5*PARTICIP), label = PARTICIP)) +
+    geom_text(aes(label = paste0(PARTICIP*100, "%")), color = "white", size=6, position = position_stack(vjust = 0.5)) +
+    xlim(0.2, 2.5) +
+    scale_fill_manual(name = "Setor", labels = c("Agropecuária", "Indústria", "Serviços"),
+                      values = c("#79d70f", "#ff4301", "#0fabbc")) +
     theme_void()
-    #geom_text(aes(y = PARTICIP/2, label = PARTICIP), color = "white", size=6)
   })
   
   #######################################################################################
