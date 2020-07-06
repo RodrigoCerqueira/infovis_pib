@@ -38,30 +38,30 @@ setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
 
 dashboardPagePlus(skin = "blue", title = "PIB",
-
+                  
                   header = dashboardHeaderPlus(
                     title = tagList(
                       span(class = "logo-lg", img(src = "LogoGovBaTransp.png", width = "147.46px", height = "40px")), 
-                         img(src = "SEI_transparente.png",
+                      img(src = "SEI_transparente.png",
                           width = "30px", height = "30px")
                     )
                   ),
                   sidebar = dashboardSidebar(collapsed = TRUE,
-                    
-                    sidebarMenu(
-                      menuItem("Apresentação", tabName = "aba11", icon = icon("file-alt")),
-                      menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
-                      #menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
-                      menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
-                      #menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
-                              #menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
-                              #menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
-                              #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
-                              #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
-                              #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
-                      menuItem("Créditos", tabName = "aba5", icon = icon("users"))
-                    )
-                    
+                                             
+                                             sidebarMenu(
+                                               menuItem("Apresentação", tabName = "aba11", icon = icon("file-alt")),
+                                               menuItem("Anual", tabName = "aba1", icon = icon("chart-bar")),
+                                               #menuItem("Trimestral", tabName = "aba2", icon = icon("chart-line")),
+                                               menuItem("Municipal", tabName = "aba3", icon = icon("map-marked-alt")),           
+                                               #menuItem("Temático", tabName = "aba4", icon = icon("chart-pie"),
+                                               #menuSubItem("Agronegócio", tabName = "aba6", icon = icon("leaf")),
+                                               #menuSubItem("Agricultura Familiar", tabName = "aba7", icon = icon("seedling")),
+                                               #menuSubItem("Turismo", tabName = "aba8", icon = icon("luggage-cart")),
+                                               #menuSubItem("Cultura", tabName = "aba9", icon = icon("theater-masks")),
+                                               #menuSubItem("Saúde", tabName = "aba10", icon = icon("ambulance")),
+                                               menuItem("Créditos", tabName = "aba5", icon = icon("users"))
+                                             )
+                                             
                   ),   
                   dashboardBody(
                     
@@ -92,25 +92,13 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                                        valueBoxOutput("particip_Bahia_NE", width = 3),
                                        valueBoxOutput("tx_cresc", width = 3)), br(),
                               fluidRow(
-<<<<<<< HEAD
-                                column(width=6,
-                                       box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em", textOutput("ano")),
-                                            status = "primary", withSpinner(plotOutput("radar_pib")),
-                                            footer = "Fonte: COREF/SEI - IBGE")),
-                                column(width=6,
-                                       box(width = NULL, title = p("Participação percentual (%) dos Setores no Valor Adicionado em", textOutput("ano")),
-                                           status = "primary", withSpinner(plotlyOutput("tx_setores")),
-                                           footer = "Fonte: COREF/SEI - IBGE"))
-                                       ), br(),
-=======
                                 column(width=6, box(width = NULL, title = p("Taxa de Crescimento do Valor Adicionado dos setores em",  textOutput("ano")),
-                                                  status = "primary", withSpinner(plotOutput("radar_pib")),
-                                                  footer = "Fonte: COREF/SEI - IBGE")),
+                                                    status = "primary", withSpinner(plotOutput("radar_pib")),
+                                                    footer = "Fonte: COREF/SEI - IBGE")),
                                 column(width=6, box(width = NULL, title = p("Participação percentual (%) dos Setores no Valor Adicionado em",  textOutput("ano2")),
                                                     status = "primary",withSpinner(plotlyOutput("tx_setores")),
                                                     footer = "Fonte: COREF/SEI - IBGE"))
                               ), br(),
->>>>>>> 1de69a04ff5a2979dea91becbbd022cb7b7eb009
                               fluidRow(
                                 column(width=6, box(width = NULL, title = paste("Taxa de Crescimento do PIB anual (2002 - 2017)"),
                                                     status = "primary", withSpinner(plotOutput("tx_bahia")),
@@ -118,7 +106,7 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                                 column(width =6, box(width = NULL, title = paste("Série encadeada do volume do Produto interno bruto (Base: 2002=100)"),
                                                      status = "primary", withSpinner(plotOutput("serie_ba_br_ne")),
                                                      footer = "Fonte: COREF/SEI - IBGE"))
-                                      )
+                              )
                       ),
                       
                       #################################################################################
@@ -161,23 +149,23 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                               fluidRow(
                                 column(width=6, 
                                        box(width = NULL, title = p("Mapa com a distrubuição da participação (%) dos municípios no setor", textOutput("setor")),
-                                       withSpinner(leafletOutput("mapa_pib")),
-                                       footer = "Fonte: COREF/SEI"), br()),
+                                           withSpinner(leafletOutput("mapa_pib")),
+                                           footer = "Fonte: COREF/SEI"), br()),
                                 column(width=6, 
                                        box(width = NULL, title = p("Participação dos setores da economia do município de", textOutput("municipio")),
-                                       withSpinner(plotOutput("municip_pizza")),
-                                       footer = "Fonte: COREF/SEI")
+                                           withSpinner(plotOutput("municip_pizza")),
+                                           footer = "Fonte: COREF/SEI")
                                 )
-                                )
+                              )
                       ),
-                              
+                      
                       
                       #################################################################################
                       #Páginas PIB temático
                       #################################################################################
                       
                       tabItem(tabName = "aba6", "Aqui estarão os resultados do PIB do Agronegócio"),
-
+                      
                       
                       #################################################################################
                       #Apresentação
@@ -188,22 +176,22 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                               fluidRow(column(width=6,
                                               box(width = NULL, 
                                                   status = "primary",
-                                              fluidRow(includeMarkdown("PIBAnual.md")),
-                                              footer = p("Para mais informações acesse", 
-                                                         a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui."))
-                                              )
-                                              ),
-                                          column(width=6,
-                                                 box(width = NULL,
-                                                  status = "primary",
-                                                  fluidRow(includeMarkdown("PIBMunicipios.md")),
+                                                  fluidRow(includeMarkdown("PIBAnual.md")),
                                                   footer = p("Para mais informações acesse", 
-                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui."))
-                                                  )
+                                                             a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2256&Itemid=328", "aqui."))
                                               )
-                                       )
                               ),
-
+                              column(width=6,
+                                     box(width = NULL,
+                                         status = "primary",
+                                         fluidRow(includeMarkdown("PIBMunicipios.md")),
+                                         footer = p("Para mais informações acesse", 
+                                                    a(href="http://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=2255&Itemid=311", "aqui."))
+                                     )
+                              )
+                              )
+                      ),
+                      
                       
                       #################################################################################
                       # Créditos
@@ -212,43 +200,42 @@ dashboardPagePlus(skin = "blue", title = "PIB",
                       tabItem(tabName = "aba5", br(),
                               fluidRow(column(width = 12,
                                               box(width = NULL, 
-                                           status = "primary",
-                                           fluidRow(includeMarkdown("Creditos.md"))
-                                                  )
+                                                  status = "primary",
+                                                  fluidRow(includeMarkdown("Creditos.md"))
+                                              )
                               )
                               )
                       )
-                      ),
+                    ),
                     
                     #################################################################################
                     #Rodapé - logos
                     #################################################################################
                     
-                      hr(),
-                      fluidRow(
-                        column(width=5,
-                               align="center",
-                               a(href="http://seplan.ba.gov.br", target="_blank",
-                                 img(class="align-middle", src = "Seplancol.png",width = "351px", height = "100px")
-                               )
-                        ),
-                        column(width=4,
-                               align="center",
-                               a(href="http://sei.ba.gov.br", target="_blank",
-                                 img(class="align-middle", src = "sei.png",width = "201.33px", height = "100px")
-                               )
-                        ),
-                        column(width=3,
-                               align="center",
-                               a(href="http://sei.ba.gov.br", target="_blank",
-                                 img(class="align-middle", src = "SeiDataLab.png",width = "225.35px", height = "100px")
-                               )
-                        )
+                    hr(),
+                    fluidRow(
+                      column(width=5,
+                             align="center",
+                             a(href="http://seplan.ba.gov.br", target="_blank",
+                               img(class="align-middle", src = "Seplancol.png",width = "351px", height = "100px")
+                             )
+                      ),
+                      column(width=4,
+                             align="center",
+                             a(href="http://sei.ba.gov.br", target="_blank",
+                               img(class="align-middle", src = "sei.png",width = "201.33px", height = "100px")
+                             )
+                      ),
+                      column(width=3,
+                             align="center",
+                             a(href="http://sei.ba.gov.br", target="_blank",
+                               img(class="align-middle", src = "SeiDataLab.png",width = "225.35px", height = "100px")
+                             )
                       )
-
-                    ################## Fim do rodapé
-                    
                     )
                     
+                    ################## Fim do rodapé
+                    
                   )
-
+                  
+)
