@@ -15,15 +15,9 @@ library(plotly)
 library(lubridate)
 library(shinydashboardPlus)
 library(rgdal)
-library(sf)
 library(leaflet)
 library(shinycssloaders)
 library(markdown)
-
-
-
-
-
 
 # Listas -----------------------------------------------------------------------
 
@@ -35,7 +29,6 @@ setorlist <- as.list(c("PIB","Agropecuária", "Indústria", "Serviços"))
 
 
 # ui.R --------------------------------------------------------------------------
-
 
 dashboardPagePlus(skin = "blue", title = "PIB",
                   

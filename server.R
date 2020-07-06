@@ -16,12 +16,10 @@ library(tidyr)
 library(plotly)
 library(ggplot2)
 library(rgdal)
-library(sf)
 library(ggthemes)
 library(RColorBrewer)
 library(shinydashboardPlus)
 library(sp)
-library(viridis)
 library(leaflet)
 
 # Datasets ---------------------------------------------------------------------
@@ -55,7 +53,7 @@ pibmunicipios <- pibmunicipios %>% rename(CD_GEOCMU=cd_geocmu)
 # transformando factor em num na shapefile
 municipio_bahia@data[["CD_GEOCMU"]] <- as.numeric(as.character((municipio_bahia@data[["CD_GEOCMU"]])))
 
-pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(pib_percentual = PIB_TOTAL/sum(PIB_TOTAL)*100)
+pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(pib_percentual = round(PIB_TOTAL/sum(PIB_TOTAL)*100,2))
 pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_AGRO_BA = VA_AGRO/sum(VA_AGRO))
 pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_IND_BA = VA_IND/sum(VA_IND))
 pibmunicipios <- pibmunicipios %>% group_by(ANO) %>% mutate(PERCENTUAL_SERV_BA = VA_SER/sum(VA_SER)) %>% 
@@ -122,7 +120,7 @@ function(input, output, session) {
       if (is.na(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)))) {
         paste0("-")
         } else {
-        paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)),nsmall=0,  big.mark=".", decimal.mark=","),"% do Brasil")
+        paste0(format(subset(x=PIBanual,subset=(CodUF==29 & Ano==input$selectano),select = c(particip_br)),nsmall=0,  big.mark=".", decimal.mark=","),"% do BR")
       },
       "participação no Brasil", icon = icon("globe-americas"),
       color = "purple"
@@ -209,7 +207,7 @@ function(input, output, session) {
       geom_text(aes(x=factor(Ano), y=tx, label =paste0(tx, "%")), 
                 vjust = -0.5, fontface="bold")+
       labs(x = "Ano", y="Taxa de Crescimento (%)")+
-      theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
+      theme(axis.text.x = element_text(vjust = 0.6, size = 9, angle = 45), axis.text.y = element_text(),
             axis.title.x = element_blank())+
       scale_fill_manual(values = c("#0fabbc", "#fa163f"))
     
@@ -223,8 +221,9 @@ function(input, output, session) {
       scale_x_continuous(breaks =seq( from=2002, to=2017, by=1))+
       labs(x="Ano", y="", color="")+
       theme_classic()+
-      theme(axis.text.x = element_text(vjust = 0.6, size = 9), axis.text.y = element_text(),
-           axis.title.x = element_blank())+
+      theme(axis.text.x = element_text(vjust = 0.6, size = 9, angle = 45), axis.text.y = element_text(),
+           axis.title.x = element_blank(),
+           legend.position = "bottom")+
       scale_colour_manual(values = c("#ffa600","#58508d","#bc5090"))
     
     
@@ -283,8 +282,12 @@ function(input, output, session) {
   
   # Mapa dos PIBs dos municípios
   output$mapa_pib <- renderLeaflet({
-    leaflet(subset(x=dados_e_mapa, subset=(ANO==input$sliderano2))) %>%
-      addProviderTiles("CartoDB.PositronNoLabels", options = providerTileOptions(minZoom = 5, maxZoom = 8)) %>%
+    leaflet(subset(x=dados_e_mapa, subset=(ANO==input$sliderano2)),
+            options = leafletOptions(zoomControl = FALSE,
+                                     minZoom = 5.5, maxZoom = 7.5, 
+                                     dragging = TRUE,
+                                     doubleClickZoom=FALSE)) %>%
+      addProviderTiles("CartoDB.PositronNoLabels") %>%
       setView(lat = -13.800000, lng = -41.559343, zoom = 5.5) %>% 
       addPolygons(stroke = T, opacity =1, color = "black", weight = 0.5, smoothFactor = 0.3, fillOpacity = 1,
                   fillColor = ~ if (input$selectsetor == "PIB") {

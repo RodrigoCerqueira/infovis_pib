@@ -28,4 +28,4 @@ Karina Carneiro da Silva<br/>
 Simone Borges Medeiros Pereira
 <br/>
 ##### *Elaboração do Dashboard*
-Rodrigo Cerqueira
+Rodrigo Barbosa de Cerqueira
